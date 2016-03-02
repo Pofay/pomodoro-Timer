@@ -65,4 +65,16 @@ public class TaskTest {
 
         assertThat(task.getTickSequence(), is("1s2s"));
     }
+
+    @Test
+    public void ItShouldSleepInBetweenTicksPerMinForA3MinBurst(){
+        Task task = new Task();
+
+        int durationInMinutes = 3;
+        task.setBurstDuration(durationInMinutes);
+
+        task.start();
+
+        assertThat(task.getTickSequence(), is("1s2s3s"));
+    }
 }

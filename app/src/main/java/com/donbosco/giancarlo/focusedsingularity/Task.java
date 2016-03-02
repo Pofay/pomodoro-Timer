@@ -9,6 +9,7 @@ public class Task {
     private boolean started;
 
     public Task() {
+        tickSequence = "";
     }
 
     public void start() {
@@ -17,10 +18,21 @@ public class Task {
     }
 
     protected void tick() {
-        if (burstDuration == 1) {
-            tickSequence = "1s";
-        } else
-            tickSequence = "1s2s";
+        //  if (burstDuration == 1) {
+        //      tickSequence = "1s";
+        //  } else if (burstDuration == 2)
+        //      tickSequence = "1s2s";
+        //  else
+        //      tickSequence = "1s2s3s";
+        int time = 1;
+        while (time <= burstDuration) {
+            tickSequence += String.valueOf(time++);
+            sleep();
+        }
+    }
+
+    protected void sleep() {
+        tickSequence += "s";
     }
 
     public boolean isStarted() {
