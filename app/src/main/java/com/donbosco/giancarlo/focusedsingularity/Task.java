@@ -4,7 +4,11 @@ package com.donbosco.giancarlo.focusedsingularity;
  * Created by GianCarlo on 3/2/2016.
  */
 public class Task {
+    private int burstDuration;
     private boolean started;
+
+    public Task() {
+    }
 
     public void start() {
         started = true;
@@ -19,10 +23,10 @@ public class Task {
     }
 
     public void setBurstDuration(int durationInMinutes) {
-
+        burstDuration = durationInMinutes;
     }
 
     public int getBurstDuration() {
-        return 25;
+        return burstDuration;
     }
 }
