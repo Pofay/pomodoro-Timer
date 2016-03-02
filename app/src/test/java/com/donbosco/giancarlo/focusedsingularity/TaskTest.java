@@ -41,16 +41,4 @@ public class TaskTest {
         assertThat(task.getBurstDuration(), is(25));
     }
 
-    @Test
-    public void ItsWorkingDurationIsSettableTo15Mins(){
-        Task task = new Task();
-
-        int durationInMinutes = 15;
-
-        task.setBurstDuration(durationInMinutes);
-
-        assertThat(task.getBurstDuration(), is(15));
-    }
-
-
 }
