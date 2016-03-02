@@ -54,7 +54,6 @@ public class TaskTest {
         assertThat(task.getTickSequence(), is(expectedTickSequence));
     }
 
-    @Ignore
     @Test
     public void ItShouldSleepInBetweenTicksPerMinuteForA2MinBurst() {
         Task task = new Task();

@@ -4,6 +4,7 @@ package com.donbosco.giancarlo.focusedsingularity;
  * Created by GianCarlo on 3/2/2016.
  */
 public class Task {
+    private String tickSequence;
     private int burstDuration;
     private boolean started;
 
@@ -12,6 +13,14 @@ public class Task {
 
     public void start() {
         started = true;
+        tick();
+    }
+
+    protected void tick() {
+        if (burstDuration == 1) {
+            tickSequence = "1s";
+        } else
+            tickSequence = "1s2s";
     }
 
     public boolean isStarted() {
@@ -31,6 +40,6 @@ public class Task {
     }
 
     public String getTickSequence() {
-        return "1s";
+        return tickSequence;
     }
 }
