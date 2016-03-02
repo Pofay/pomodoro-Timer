@@ -30,5 +30,16 @@ public class TaskTest {
         assertThat(task.isStarted(), is(false));
     }
 
+    @Test
+    public void ItsWorkingDurationIsSettable(){
+        Task task = new Task();
+
+        int durationInMinutes = 25;
+
+        task.setBurstDuration(durationInMinutes);
+
+        assertThat(task.getBurstDuration(), is(25));
+    }
+
 
 }

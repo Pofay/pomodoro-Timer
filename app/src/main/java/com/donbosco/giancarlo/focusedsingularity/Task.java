@@ -17,4 +17,12 @@ public class Task {
     public void stop() {
         started = false;
     }
+
+    public void setBurstDuration(int durationInMinutes) {
+
+    }
+
+    public int getBurstDuration() {
+        return 25;
+    }
 }
