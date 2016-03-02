@@ -20,7 +20,6 @@ public class TaskTest {
         assertThat(task.isStarted(), is(true));
     }
 
-    @Ignore
     @Test
     public void ItShouldBeAbleToStop(){
         Task task = new Task();
