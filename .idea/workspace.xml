@@ -43,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Task.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+              <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding>
                 <element signature="e#229#230#0" expanded="true" />
                 <element signature="e#259#260#0" expanded="true" />
@@ -53,8 +53,8 @@
                 <element signature="e#488#489#0" expanded="true" />
                 <element signature="e#525#526#0" expanded="true" />
                 <element signature="e#561#562#0" expanded="true" />
-                <element signature="e#590#591#0" expanded="true" />
-                <element signature="e#614#615#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#626#627#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,8 +63,8 @@
       <file leaf-file-name="TaskTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15846995">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6393443">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2149,8 +2149,8 @@
             <element signature="e#488#489#0" expanded="true" />
             <element signature="e#525#526#0" expanded="true" />
             <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2231,7 +2231,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
           <folding>
             <element signature="e#229#230#0" expanded="true" />
             <element signature="e#259#260#0" expanded="true" />
@@ -2241,16 +2241,16 @@
             <element signature="e#488#489#0" expanded="true" />
             <element signature="e#525#526#0" expanded="true" />
             <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15846995">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6393443">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

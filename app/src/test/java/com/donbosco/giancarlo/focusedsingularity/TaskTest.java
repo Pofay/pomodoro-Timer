@@ -1,6 +1,5 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -50,6 +49,7 @@ public class TaskTest {
 
         task.start();
 
-        assertThat(task.getTicks(), is(1));
+        assertThat(task.getTickSequence(), is("1"));
     }
+
 }

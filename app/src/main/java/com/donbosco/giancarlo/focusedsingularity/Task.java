@@ -30,7 +30,7 @@ public class Task {
         return burstDuration;
     }
 
-    public int getTicks() {
-        return 1;
+    public String getTickSequence() {
+        return "1";
     }
 }
