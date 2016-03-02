@@ -1,5 +1,6 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -41,7 +42,7 @@ public class TaskTest {
     }
 
     @Test
-    public void ItShouldBeAbleToTickOnStart() {
+    public void ItShouldBeAbleToTickPerMinuteWithASleepOnStart() {
         Task task = new Task();
 
         int durationInMinutes = 1;
@@ -49,7 +50,20 @@ public class TaskTest {
 
         task.start();
 
-        assertThat(task.getTickSequence(), is("1"));
+        String expectedTickSequence = "1s";
+        assertThat(task.getTickSequence(), is(expectedTickSequence));
     }
 
+    @Ignore
+    @Test
+    public void ItShouldSleepInBetweenTicksPerMinuteForA2MinBurst() {
+        Task task = new Task();
+
+        int durationInMinutes = 2;
+        task.setBurstDuration(durationInMinutes);
+
+        task.start();
+
+        assertThat(task.getTickSequence(), is("1s2s"));
+    }
 }

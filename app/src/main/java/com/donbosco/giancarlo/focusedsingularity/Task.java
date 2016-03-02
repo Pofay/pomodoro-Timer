@@ -31,6 +31,6 @@ public class Task {
     }
 
     public String getTickSequence() {
-        return "1";
+        return "1s";
     }
 }
