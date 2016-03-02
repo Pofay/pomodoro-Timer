@@ -29,4 +29,8 @@ public class Task {
     public int getBurstDuration() {
         return burstDuration;
     }
+
+    public int getTicks() {
+        return 1;
+    }
 }

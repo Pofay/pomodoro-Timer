@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class TaskTest {
 
     @Test
-    public void ItShouldBeAbleToStart(){
+    public void ItShouldBeAbleToStart() {
         Task task = new Task();
 
         task.start();
@@ -21,7 +21,7 @@ public class TaskTest {
     }
 
     @Test
-    public void ItShouldBeAbleToStop(){
+    public void ItShouldBeAbleToStop() {
         Task task = new Task();
 
         task.start();
@@ -31,7 +31,7 @@ public class TaskTest {
     }
 
     @Test
-    public void ItsWorkingDurationIsSettable(){
+    public void ItsWorkingDurationIsSettable() {
         Task task = new Task();
 
         int durationInMinutes = 25;
@@ -41,4 +41,15 @@ public class TaskTest {
         assertThat(task.getBurstDuration(), is(25));
     }
 
+    @Test
+    public void ItShouldBeAbleToTickOnStart() {
+        Task task = new Task();
+
+        int durationInMinutes = 1;
+        task.setBurstDuration(durationInMinutes);
+
+        task.start();
+
+        assertThat(task.getTicks(), is(1));
+    }
 }
