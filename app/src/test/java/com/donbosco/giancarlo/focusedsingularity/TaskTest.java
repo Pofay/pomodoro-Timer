@@ -1,6 +1,5 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -49,11 +48,11 @@ public class TaskTest {
 
         String expectedTickSequence = "1s2s";
         assertThat(task.tickSequence, is(expectedTickSequence));
-        assertThat(task.durationRan, is(2));
+        assertThat(task.elapsedDuration, is(2));
     }
 
     @Test
-    public void ItShouldBeAbleToResetItsRanDuration() {
+    public void ItShouldBeAbleToResetItsElapsedDuration() {
         FakeTask task = new FakeTask();
 
         int durationInMinutes = 5;
@@ -62,7 +61,7 @@ public class TaskTest {
         task.run();
 
         task.reset();
-        assertThat(task.durationRan, is(0));
+        assertThat(task.elapsedDuration, is(0));
     }
 
     @Test
