@@ -1,6 +1,5 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -12,22 +11,19 @@ import static org.junit.Assert.assertThat;
 public class TaskTest {
 
     @Test
-    public void ItShouldBeAbleToStart() {
+    public void ItShouldBeReadyToStartOnCreation() {
         Task task = new Task();
 
-        task.start();
-
-        assertThat(task.isStarted(), is(true));
+        assertThat(task.isCancelled(), is(true));
     }
 
     @Test
     public void ItShouldBeAbleToStop() {
         Task task = new Task();
 
-        task.start();
         task.stop();
 
-        assertThat(task.isStarted(), is(false));
+        assertThat(task.isCancelled(), is(false));
     }
 
     @Test
@@ -48,7 +44,7 @@ public class TaskTest {
         int durationInMinutes = 1;
         task.setBurstDuration(durationInMinutes);
 
-        task.start();
+        task.run();
 
         String expectedTickSequence = "1s";
         assertThat(task.getTickSequence(), is(expectedTickSequence));
@@ -61,19 +57,19 @@ public class TaskTest {
         int durationInMinutes = 2;
         task.setBurstDuration(durationInMinutes);
 
-        task.start();
+        task.run();
 
         assertThat(task.getTickSequence(), is("1s2s"));
     }
 
     @Test
-    public void ItShouldSleepInBetweenTicksPerMinForA3MinBurst(){
+    public void ItShouldSleepInBetweenTicksPerMinForA3MinBurst() {
         Task task = new Task();
 
         int durationInMinutes = 3;
         task.setBurstDuration(durationInMinutes);
 
-        task.start();
+        task.run();
 
         assertThat(task.getTickSequence(), is("1s2s3s"));
     }

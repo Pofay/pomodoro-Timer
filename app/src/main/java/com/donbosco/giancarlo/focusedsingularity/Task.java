@@ -5,37 +5,29 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public class Task {
     private String tickSequence;
+    private int ranDuration = 1;
     private int burstDuration;
-    private boolean started;
+    private boolean started = true;
 
     public Task() {
         tickSequence = "";
     }
 
-    public void start() {
-        started = true;
-        tick();
+    public void run() {
+        while ((ranDuration <= burstDuration) && started) {
+            tickSequence += String.valueOf(ranDuration++);
+            sleep();
+        }
     }
 
     protected void tick() {
-        //  if (burstDuration == 1) {
-        //      tickSequence = "1s";
-        //  } else if (burstDuration == 2)
-        //      tickSequence = "1s2s";
-        //  else
-        //      tickSequence = "1s2s3s";
-        int time = 1;
-        while (time <= burstDuration) {
-            tickSequence += String.valueOf(time++);
-            sleep();
-        }
     }
 
     protected void sleep() {
         tickSequence += "s";
     }
 
-    public boolean isStarted() {
+    public boolean isCancelled() {
         return started;
     }
 
