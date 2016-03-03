@@ -44,6 +44,7 @@ public class FakeTask implements Task {
 
     @Override
     public void reset() {
+        started = true;
         durationRan = 0;
     }
 

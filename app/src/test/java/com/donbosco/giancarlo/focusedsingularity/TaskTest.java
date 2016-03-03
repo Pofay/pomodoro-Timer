@@ -65,7 +65,6 @@ public class TaskTest {
         assertThat(task.durationRan, is(0));
     }
 
-
     @Test
     public void ItNoLongerRunsWhenTaskIsStopped() {
         FakeTask task = new FakeTask();
@@ -78,5 +77,19 @@ public class TaskTest {
 
         assertThat(task.tickSequence, is(""));
         assertThat(task.isRunnable(), is(false));
+    }
+
+    @Test
+    public void ItShouldBeRunnableAfterResetting() {
+        FakeTask task = new FakeTask();
+
+        int durationInMinutes = 5;
+        task.setBurstDuration(durationInMinutes);
+
+        task.stop();
+
+        task.reset();
+
+        assertThat(task.isRunnable(), is(true));
     }
 }
