@@ -7,10 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bbbb22f-0814-45be-af69-3925ba1c5dc2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/FakeTask.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/FakeTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Task.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Task.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FocusedSingularity.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TaskTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.15846995">
+              <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FakeTask.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FakeTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/FakeTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.06010929">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
               <folding>
                 <element signature="e#850#851#0" expanded="true" />
                 <element signature="e#886#887#0" expanded="true" />
@@ -1628,8 +1625,8 @@
         <option value="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskExecutorTest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/TaskExecutor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Task.java" />
-        <option value="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/FakeTask.java" />
+        <option value="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java" />
       </list>
     </option>
   </component>
@@ -2276,16 +2273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2296,13 +2283,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/FakeTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06010929">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
           <folding>
             <element signature="e#850#851#0" expanded="true" />
             <element signature="e#886#887#0" expanded="true" />
             <element signature="e#927#928#0" expanded="true" />
             <element signature="e#958#959#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/TaskTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15846995">
+          <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
