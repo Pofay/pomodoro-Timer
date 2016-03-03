@@ -43,7 +43,7 @@ public class FakeTask implements Task {
 
     @Override
     public void reset() {
-        ranDuration = 1;
+        ranDuration = 0;
     }
 
     public String getTickSequence() {

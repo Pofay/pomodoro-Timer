@@ -79,7 +79,7 @@ public class TaskTest {
     }
 
     @Test
-    public void ItShouldBeAbleToResetItsRanDurationBackTo1() {
+    public void ItShouldBeAbleToResetItsRanDurationBackTo0() {
 
         FakeTask task = new FakeTask();
 
@@ -89,6 +89,6 @@ public class TaskTest {
         task.run();
 
         task.reset();
-        assertThat(task.ranDuration, is(1));
+        assertThat(task.ranDuration, is(0));
     }
 }
