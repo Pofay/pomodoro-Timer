@@ -11,7 +11,7 @@ public class FakeTask implements Task {
 
 
     public FakeTask() {
-        started = true;
+        reset();
         tickSequence = "";
     }
 
