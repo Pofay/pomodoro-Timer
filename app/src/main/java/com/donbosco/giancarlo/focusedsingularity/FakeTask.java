@@ -5,17 +5,18 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public class FakeTask implements Task {
     private String tickSequence;
-    private int ranDuration = 1;
+    public int ranDuration;
     private int burstDuration;
     private boolean started = true;
+
 
     public FakeTask() {
         tickSequence = "";
     }
 
     public void run() {
-        while ((ranDuration <= burstDuration) && started) {
-            tickSequence += String.valueOf(ranDuration++);
+        while ((ranDuration < burstDuration) && started) {
+            tickSequence += String.valueOf(++ranDuration);
             sleep();
         }
     }
@@ -39,7 +40,12 @@ public class FakeTask implements Task {
     public int getBurstDuration() {
         return burstDuration;
     }
-    
+
+    @Override
+    public void reset() {
+        ranDuration = 1;
+    }
+
     public String getTickSequence() {
         return tickSequence;
     }

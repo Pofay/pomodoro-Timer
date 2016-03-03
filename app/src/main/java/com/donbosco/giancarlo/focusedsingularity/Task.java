@@ -13,4 +13,5 @@ public interface Task extends Runnable {
 
     public int getBurstDuration();
 
+    void reset();
 }

@@ -48,6 +48,7 @@ public class TaskTest {
 
         String expectedTickSequence = "1s";
         assertThat(task.getTickSequence(), is(expectedTickSequence));
+        assertThat(task.ranDuration, is(1));
     }
 
     @Test
@@ -61,6 +62,7 @@ public class TaskTest {
 
         String expectedTickSequence = "1s2s";
         assertThat(task.getTickSequence(), is(expectedTickSequence));
+        assertThat(task.ranDuration, is(2));
     }
 
     @Test
@@ -73,5 +75,20 @@ public class TaskTest {
         task.run();
 
         assertThat(task.getTickSequence(), is("1s2s3s"));
+        assertThat(task.ranDuration, is(3));
+    }
+
+    @Test
+    public void ItShouldBeAbleToResetItsRanDurationBackTo1() {
+
+        FakeTask task = new FakeTask();
+
+        int durationInMinutes = 5;
+        task.setBurstDuration(durationInMinutes);
+
+        task.run();
+
+        task.reset();
+        assertThat(task.ranDuration, is(1));
     }
 }
