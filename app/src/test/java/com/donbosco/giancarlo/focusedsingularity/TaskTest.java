@@ -100,6 +100,6 @@ public class TaskTest {
 
         task.run();
 
-        assertThat(task.score, is(1));
+        assertThat(task.getScore(), is(1));
     }
 }

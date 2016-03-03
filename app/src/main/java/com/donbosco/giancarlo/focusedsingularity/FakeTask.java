@@ -8,7 +8,7 @@ public class FakeTask implements Task {
     public int elapsedDuration;
     private int burstDuration;
     private boolean started;
-    public int score;
+    private int score;
 
 
     public FakeTask() {
@@ -50,4 +50,7 @@ public class FakeTask implements Task {
         elapsedDuration = 0;
     }
 
+    public int getScore() {
+        return score;
+    }
 }
