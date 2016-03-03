@@ -12,14 +12,14 @@ public class TaskTest {
 
     @Test
     public void ItShouldBeReadyToStartOnCreation() {
-        Task task = new Task();
+        FakeTask task = new FakeTask();
 
         assertThat(task.isStarted(), is(true));
     }
 
     @Test
     public void ItShouldBeAbleToStop() {
-        Task task = new Task();
+        FakeTask task = new FakeTask();
 
         task.stop();
 
@@ -28,7 +28,7 @@ public class TaskTest {
 
     @Test
     public void ItsWorkingDurationIsSettable() {
-        Task task = new Task();
+        FakeTask task = new FakeTask();
 
         int durationInMinutes = 25;
 
@@ -39,7 +39,7 @@ public class TaskTest {
 
     @Test
     public void ItShouldBeAbleToTickPerMinuteWithASleepOnStart() {
-        Task task = new Task();
+        FakeTask task = new FakeTask();
 
         int durationInMinutes = 1;
         task.setBurstDuration(durationInMinutes);
@@ -52,19 +52,20 @@ public class TaskTest {
 
     @Test
     public void ItShouldSleepInBetweenTicksPerMinuteForA2MinBurst() {
-        Task task = new Task();
+        FakeTask task = new FakeTask();
 
         int durationInMinutes = 2;
         task.setBurstDuration(durationInMinutes);
 
         task.run();
 
-        assertThat(task.getTickSequence(), is("1s2s"));
+        String expectedTickSequence = "1s2s";
+        assertThat(task.getTickSequence(), is(expectedTickSequence));
     }
 
     @Test
     public void ItShouldSleepInBetweenTicksPerMinForA3MinBurst() {
-        Task task = new Task();
+        FakeTask task = new FakeTask();
 
         int durationInMinutes = 3;
         task.setBurstDuration(durationInMinutes);

@@ -1,49 +1,16 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
 /**
- * Created by GianCarlo on 3/2/2016.
+ * Created by GianCarlo on 3/3/2016.
  */
-public class Task {
-    private String tickSequence;
-    private int ranDuration = 1;
-    private int burstDuration;
-    private boolean started = true;
+public interface Task extends Runnable {
 
-    public Task() {
-        tickSequence = "";
-    }
+    public boolean isStarted();
 
-    public void run() {
-        while ((ranDuration <= burstDuration) && started) {
-            tickSequence += String.valueOf(ranDuration++);
-            sleep();
-        }
-    }
+    public void stop();
 
-    protected void tick() {
-    }
+    public void setBurstDuration(int durationInMinutes);
 
-    protected void sleep() {
-        tickSequence += "s";
-    }
+    public int getBurstDuration();
 
-    public boolean isStarted() {
-        return started;
-    }
-
-    public void stop() {
-        started = false;
-    }
-
-    public void setBurstDuration(int durationInMinutes) {
-        burstDuration = durationInMinutes;
-    }
-
-    public int getBurstDuration() {
-        return burstDuration;
-    }
-
-    public String getTickSequence() {
-        return tickSequence;
-    }
 }
