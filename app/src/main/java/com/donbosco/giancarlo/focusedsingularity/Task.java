@@ -5,13 +5,13 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public interface Task extends Runnable {
 
-    public boolean isRunnable();
+    boolean isRunnable();
 
-    public void stop();
+    void stop();
 
-    public void setBurstDuration(int durationInMinutes);
+    void setBurstDuration(int durationInMinutes);
 
-    public int getBurstDuration();
+    int getBurstDuration();
 
     void reset();
 }

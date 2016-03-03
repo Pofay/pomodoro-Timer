@@ -65,7 +65,7 @@ public class TaskTest {
         assertThat(task.durationRan, is(0));
     }
 
-    
+
     @Test
     public void ItNoLongerRunsWhenTaskIsStopped() {
         FakeTask task = new FakeTask();
