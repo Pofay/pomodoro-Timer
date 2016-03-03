@@ -8,6 +8,7 @@ public class FakeTask implements Task {
     public int elapsedDuration;
     private int burstDuration;
     private boolean started;
+    public int score;
 
 
     public FakeTask() {
@@ -20,6 +21,7 @@ public class FakeTask implements Task {
             tickSequence += String.valueOf(++elapsedDuration);
             sleep();
         }
+        score++;
     }
 
     protected void sleep() {

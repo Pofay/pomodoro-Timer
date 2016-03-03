@@ -90,4 +90,16 @@ public class TaskTest {
 
         assertThat(task.isRunnable(), is(true));
     }
+
+    @Test
+    public void ItShouldIncrementItsScoreAfterARun() {
+        FakeTask task = new FakeTask();
+
+        int durationInMinutes = 5;
+        task.setBurstDuration(durationInMinutes);
+
+        task.run();
+
+        assertThat(task.score, is(1));
+    }
 }
