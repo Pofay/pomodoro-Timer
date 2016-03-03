@@ -102,4 +102,16 @@ public class TaskTest {
 
         assertThat(task.getScore(), is(1));
     }
+
+    @Test
+    public void ItShouldPerformA5MinBreakAfterCompletingARun() {
+        FakeTask task = new FakeTask();
+
+        int durationInMinutes = 8;
+        task.setBurstDuration(durationInMinutes);
+
+        task.run();
+
+        assertThat(task.breakSequence, is("1s2s3s4s5s"));
+    }
 }
