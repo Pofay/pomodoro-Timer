@@ -14,7 +14,7 @@ public class TaskTest {
     public void ItShouldBeReadyToStartOnCreation() {
         FakeTask task = new FakeTask();
 
-        assertThat(task.isStarted(), is(true));
+        assertThat(task.isRunnable(), is(true));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class TaskTest {
 
         task.stop();
 
-        assertThat(task.isStarted(), is(false));
+        assertThat(task.isRunnable(), is(false));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class TaskTest {
         task.run();
 
         String expectedTickSequence = "1s2s";
-        assertThat(task.getTickSequence(), is(expectedTickSequence));
+        assertThat(task.tickSequence, is(expectedTickSequence));
         assertThat(task.durationRan, is(2));
     }
 
@@ -62,5 +62,19 @@ public class TaskTest {
 
         task.reset();
         assertThat(task.durationRan, is(0));
+    }
+
+    @Test
+    public void ItNoLongerRunsWhenTaskIsStopped() {
+        FakeTask task = new FakeTask();
+
+        int durationInMinutes = 9;
+        task.setBurstDuration(durationInMinutes);
+
+        task.stop();
+        task.run();
+
+        assertThat(task.tickSequence, is(""));
+        assertThat(task.isRunnable(), is(false));
     }
 }

@@ -5,7 +5,7 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public interface Task extends Runnable {
 
-    public boolean isStarted();
+    public boolean isRunnable();
 
     public void stop();
 

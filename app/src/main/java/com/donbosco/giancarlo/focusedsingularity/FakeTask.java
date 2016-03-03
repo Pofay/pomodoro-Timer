@@ -4,13 +4,14 @@ package com.donbosco.giancarlo.focusedsingularity;
  * Created by GianCarlo on 3/2/2016.
  */
 public class FakeTask implements Task {
-    private String tickSequence;
+    public String tickSequence;
     public int durationRan;
     private int burstDuration;
-    private boolean started = true;
+    private boolean started;
 
 
     public FakeTask() {
+        started = true;
         tickSequence = "";
     }
 
@@ -25,7 +26,7 @@ public class FakeTask implements Task {
         tickSequence += "s";
     }
 
-    public boolean isStarted() {
+    public boolean isRunnable() {
         return started;
     }
 
@@ -46,7 +47,4 @@ public class FakeTask implements Task {
         durationRan = 0;
     }
 
-    public String getTickSequence() {
-        return tickSequence;
-    }
 }
