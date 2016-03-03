@@ -27,7 +27,7 @@ public class Task {
         tickSequence += "s";
     }
 
-    public boolean isCancelled() {
+    public boolean isStarted() {
         return started;
     }
 

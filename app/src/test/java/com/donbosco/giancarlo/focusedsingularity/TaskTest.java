@@ -14,7 +14,7 @@ public class TaskTest {
     public void ItShouldBeReadyToStartOnCreation() {
         Task task = new Task();
 
-        assertThat(task.isCancelled(), is(true));
+        assertThat(task.isStarted(), is(true));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class TaskTest {
 
         task.stop();
 
-        assertThat(task.isCancelled(), is(false));
+        assertThat(task.isStarted(), is(false));
     }
 
     @Test
