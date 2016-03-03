@@ -66,7 +66,7 @@ public class TaskTest {
     }
 
     @Test
-    public void ItNoLongerRunsWhenTaskIsStopped() {
+    public void ItIsNoLongerRunnableOnStop() {
         FakeTask task = new FakeTask();
 
         int durationInMinutes = 9;
@@ -85,7 +85,6 @@ public class TaskTest {
 
         int durationInMinutes = 5;
         task.setBurstDuration(durationInMinutes);
-
         task.stop();
 
         task.reset();
