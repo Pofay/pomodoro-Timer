@@ -112,6 +112,7 @@ public class TaskTest {
 
         task.run();
 
+        assertThat(task.tickSequence, is("1s2s3s4s5s6s7s8s"));
         assertThat(task.breakSequence, is("1s2s3s4s5s"));
     }
 }
