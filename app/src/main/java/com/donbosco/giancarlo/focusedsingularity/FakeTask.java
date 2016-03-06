@@ -1,5 +1,7 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
+import android.os.CountDownTimer;
+
 /**
  * Created by GianCarlo on 3/2/2016.
  */
@@ -17,6 +19,7 @@ public class FakeTask implements Task {
         reset();
         tickSequence = "";
         breakSequence = "";
+
     }
 
     public void run() {
