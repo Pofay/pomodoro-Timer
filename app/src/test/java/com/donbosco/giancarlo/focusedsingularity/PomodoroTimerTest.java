@@ -1,11 +1,14 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
-import android.os.CountDownTimer;
-
 import org.junit.Test;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
@@ -58,9 +61,9 @@ public class PomodoroTimerTest {
         timer.setTask(actualTask);
 
         timer.start();
-        assertThat("Should Start Task",actualTask.isStarted(), is(true));
+        assertThat("Should Start Task", actualTask.isStarted(), is(true));
         timer.stop();
-        assertThat("Should Stop Task",actualTask.isStarted(), is(false));
+        assertThat("Should Stop Task", actualTask.isStarted(), is(false));
     }
 
 

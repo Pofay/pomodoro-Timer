@@ -3,7 +3,7 @@ package com.donbosco.giancarlo.focusedsingularity;
 /**
  * Created by GianCarlo on 3/8/2016.
  */
-public class Task {
+public class Task implements Runnable{
 
     private final int pomodoroEstimate;
     private final String name;
@@ -12,6 +12,11 @@ public class Task {
     public Task(String name, int pomodoroEstimate) {
         this.name = name;
         this.pomodoroEstimate = pomodoroEstimate;
+    }
+
+    @Override
+    public void run() {
+
     }
 
     public String getName() {
