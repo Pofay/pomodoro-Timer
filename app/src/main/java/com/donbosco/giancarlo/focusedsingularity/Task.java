@@ -7,6 +7,7 @@ public class Task {
 
     private final int pomodoroEstimate;
     private final String name;
+    private boolean started;
 
     public Task(String name, int pomodoroEstimate) {
         this.name = name;
@@ -19,5 +20,13 @@ public class Task {
 
     public Integer getPomodoroEstimate() {
         return pomodoroEstimate;
+    }
+
+    public boolean isStarted() {
+        return started;
+    }
+
+    public void requestStart() {
+        started = true;
     }
 }

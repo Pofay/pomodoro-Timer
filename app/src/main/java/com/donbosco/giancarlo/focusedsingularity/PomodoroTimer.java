@@ -14,4 +14,8 @@ public class PomodoroTimer {
     public Task getSelectedTask() {
         return currentTask;
     }
+
+    public void start() {
+        currentTask.requestStart();
+    }
 }

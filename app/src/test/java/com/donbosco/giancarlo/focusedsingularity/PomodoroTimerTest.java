@@ -35,5 +35,18 @@ public class PomodoroTimerTest {
         assertThat(actualTask.getPomodoroEstimate(), is(3));
     }
 
+    @Test
+    public void ItShouldStartItsCurrentTask() {
+        PomodoroTimer timer = new PomodoroTimer();
+
+        Task actualTask = new Task("Some Task", 4);
+
+        timer.setTask(actualTask);
+
+        timer.start();
+
+        assertThat(actualTask.isStarted(), is(true));
+    }
+
 
 }
