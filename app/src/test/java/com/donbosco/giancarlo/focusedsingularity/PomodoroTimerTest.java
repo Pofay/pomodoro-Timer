@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 public class PomodoroTimerTest {
 
     @Test
-    public void ItCanCreateANewTask() {
+    public void ItCanSetItsTaskToWorkOn() {
         PomodoroTimer timer = new PomodoroTimer();
 
         timer.setTask(new Task());
