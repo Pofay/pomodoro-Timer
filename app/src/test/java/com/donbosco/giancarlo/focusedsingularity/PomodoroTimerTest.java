@@ -36,7 +36,7 @@ public class PomodoroTimerTest {
     }
 
     @Test
-    public void ItShouldStartItsCurrentTask() {
+    public void ItShouldBeAbleToStartItsCurrentTask() {
         PomodoroTimer timer = new PomodoroTimer();
 
         Task actualTask = new Task("Some Task", 4);
@@ -46,6 +46,21 @@ public class PomodoroTimerTest {
         timer.start();
 
         assertThat(actualTask.isStarted(), is(true));
+    }
+
+    // Needs to be moved to another context
+    @Test
+    public void ItShouldBeAbleToStopItsCurrentTask() {
+        PomodoroTimer timer = new PomodoroTimer();
+
+        Task actualTask = new Task("Code", 2);
+
+        timer.setTask(actualTask);
+
+        timer.start();
+        assertThat("Should Start Task",actualTask.isStarted(), is(true));
+        timer.stop();
+        assertThat("Should Stop Task",actualTask.isStarted(), is(false));
     }
 
 

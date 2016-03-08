@@ -18,4 +18,8 @@ public class PomodoroTimer {
     public void start() {
         currentTask.requestStart();
     }
+
+    public void stop() {
+        currentTask.requestStop();
+    }
 }

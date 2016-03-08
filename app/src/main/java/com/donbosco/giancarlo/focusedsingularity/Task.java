@@ -29,4 +29,8 @@ public class Task {
     public void requestStart() {
         started = true;
     }
+
+    public void requestStop() {
+        started = false;
+    }
 }
