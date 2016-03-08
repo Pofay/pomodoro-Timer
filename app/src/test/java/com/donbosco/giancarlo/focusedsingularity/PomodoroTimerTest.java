@@ -18,9 +18,22 @@ public class PomodoroTimerTest {
     public void ItCanSetItsTaskToWorkOn() {
         PomodoroTimer timer = new PomodoroTimer();
 
-        timer.setTask(new Task());
+        int pomodoroEstimate = 2;
+        timer.setTask(new Task("Programming", pomodoroEstimate));
 
         assertThat(timer.getSelectedTask(), is(notNullValue()));
     }
+
+    @Test
+    public void ItShouldHaveTheRightDetailsInTask() {
+        PomodoroTimer timer = new PomodoroTimer();
+
+        timer.setTask(new Task("Studying", 3));
+
+        Task actualTask = timer.getSelectedTask();
+        assertThat(actualTask.getName(), is("Studying"));
+        assertThat(actualTask.getPomodoroEstimate(), is(3));
+    }
+
 
 }

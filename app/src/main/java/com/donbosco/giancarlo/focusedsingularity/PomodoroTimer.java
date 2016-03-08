@@ -5,10 +5,13 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public class PomodoroTimer {
 
+    private Task currentTask;
+
     public void setTask(Task task) {
+        this.currentTask = task;
     }
 
     public Task getSelectedTask() {
-        return new Task();
+        return currentTask;
     }
 }
