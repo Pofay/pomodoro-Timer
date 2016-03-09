@@ -8,6 +8,7 @@ public class PomodoroTask implements Task {
     private final int pomodoroEstimate;
     private final String name;
     private boolean started;
+    private long timeSpent;
 
     public PomodoroTask(String name, int pomodoroEstimate) {
         this.name = name;
@@ -26,5 +27,10 @@ public class PomodoroTask implements Task {
     @Override
     public Long getTimeSpent() {
         return 1000L;
+    }
+
+    @Override
+    public void addTime() {
+        timeSpent += 1000L;
     }
 }

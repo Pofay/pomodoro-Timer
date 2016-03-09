@@ -24,8 +24,15 @@ public class PomodoroTimerStateTest {
 
         state.execute(task);
 
-        assertThat(task.getTimeSpent(), is(1000L));
+        assertThat(task.getTimeSpent(), is(2000L));
     }
 
-   
+    @Test
+    public void ItShouldAddTimeSpentToATask() throws Exception {
+        Task task = new PomodoroTask("Stuff", 1);
+
+        state.execute(task);
+
+        assertThat(task.getTimeSpent(), is(1000L));
+    }
 }
