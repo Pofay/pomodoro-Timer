@@ -5,14 +5,14 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public class PomodoroTask implements Task {
 
-    private final long pomodoroEstimate;
+    private final long timeEstimateInSeconds;
     private final String name;
     private boolean started;
     private long timeSpent;
 
     public PomodoroTask(String name, long timeEstimateInSeconds) {
         this.name = name;
-        this.pomodoroEstimate = timeEstimateInSeconds;
+        this.timeEstimateInSeconds = timeEstimateInSeconds;
     }
 
 
@@ -21,7 +21,7 @@ public class PomodoroTask implements Task {
     }
 
     public Long getTimeEstimateInSeconds() {
-        return pomodoroEstimate;
+        return timeEstimateInSeconds;
     }
 
     @Override
