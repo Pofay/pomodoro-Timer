@@ -9,5 +9,5 @@ public interface Task {
 
     void addTime();
 
-    Integer getPomodoroEstimate();
+    Long getTimeEstimateInSeconds();
 }

@@ -7,7 +7,7 @@ public enum SimplePomodoroTimerState implements PomodoroTimerState {
     WORKING {
         @Override
         public void execute(Task task) {
-            for (int i = 0; i <= task.getPomodoroEstimate(); ++i) {
+            for (int i = 0; i < task.getTimeEstimateInSeconds(); ++i) {
                 task.addTime();
             }
         }
