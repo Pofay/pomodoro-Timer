@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class PomodoroTimer {
 
     private Task currentTask;
+    private PomodoroTimerState state;
 
     public void setTask(Task task) {
         this.currentTask = task;
@@ -18,8 +19,13 @@ public class PomodoroTimer {
     }
 
     public void start() {
+        state = SimplePomodoroTimerState.WORKING;
     }
 
     public void stop() {
+    }
+
+    public PomodoroTimerState getState() {
+        return state;
     }
 }

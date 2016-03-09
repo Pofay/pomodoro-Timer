@@ -38,4 +38,15 @@ public class PomodoroTimerTest {
         assertThat(actualTask.getPomodoroEstimate(), is(3));
     }
 
+    @Test
+    public void ItShouldBeInTheStartedStateWhenStarted() throws Exception {
+        PomodoroTimer timer = new PomodoroTimer();
+
+        timer.setTask(new Task("Studying", 4));
+
+        timer.start();
+
+        PomodoroTimerState expectedState = SimplePomodoroTimerState.WORKING;
+        assertThat(timer.getState(), is(expectedState));
+    }
 }
