@@ -1,20 +1,18 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by GianCarlo on 3/6/2016.
  */
 public class PomodoroTimer {
 
-    private Task currentTask;
+    private PomodoroTask currentTask;
     private PomodoroTimerState state;
 
-    public void setTask(Task task) {
+    public void setTask(PomodoroTask task) {
         this.currentTask = task;
     }
 
-    public Task getSelectedTask() {
+    public PomodoroTask getSelectedTask() {
         return currentTask;
     }
 

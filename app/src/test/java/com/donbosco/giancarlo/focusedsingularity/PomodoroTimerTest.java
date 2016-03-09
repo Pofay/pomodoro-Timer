@@ -2,12 +2,6 @@ package com.donbosco.giancarlo.focusedsingularity;
 
 import org.junit.Test;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -22,7 +16,7 @@ public class PomodoroTimerTest {
         PomodoroTimer timer = new PomodoroTimer();
 
         int pomodoroEstimate = 2;
-        timer.setTask(new Task("Programming", pomodoroEstimate));
+        timer.setTask(new PomodoroTask("Programming", pomodoroEstimate));
 
         assertThat(timer.getSelectedTask(), is(notNullValue()));
     }
@@ -31,9 +25,9 @@ public class PomodoroTimerTest {
     public void ItShouldHaveTheRightDetailsInTask() {
         PomodoroTimer timer = new PomodoroTimer();
 
-        timer.setTask(new Task("Studying", 3));
+        timer.setTask(new PomodoroTask("Studying", 3));
 
-        Task actualTask = timer.getSelectedTask();
+        PomodoroTask actualTask = timer.getSelectedTask();
         assertThat(actualTask.getName(), is("Studying"));
         assertThat(actualTask.getPomodoroEstimate(), is(3));
     }
@@ -42,7 +36,7 @@ public class PomodoroTimerTest {
     public void ItShouldBeInTheStartedStateWhenStarted() throws Exception {
         PomodoroTimer timer = new PomodoroTimer();
 
-        timer.setTask(new Task("Studying", 4));
+        timer.setTask(new PomodoroTask("Studying", 4));
 
         timer.start();
 
