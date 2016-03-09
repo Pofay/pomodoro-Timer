@@ -3,7 +3,7 @@ package com.donbosco.giancarlo.focusedsingularity;
 /**
  * Created by GianCarlo on 3/8/2016.
  */
-public class Task implements Runnable{
+public class Task {
 
     private final int pomodoroEstimate;
     private final String name;
@@ -14,10 +14,6 @@ public class Task implements Runnable{
         this.pomodoroEstimate = pomodoroEstimate;
     }
 
-    @Override
-    public void run() {
-
-    }
 
     public String getName() {
         return name;
@@ -25,17 +21,5 @@ public class Task implements Runnable{
 
     public Integer getPomodoroEstimate() {
         return pomodoroEstimate;
-    }
-
-    public boolean isStarted() {
-        return started;
-    }
-
-    public void requestStart() {
-        started = true;
-    }
-
-    public void requestStop() {
-        started = false;
     }
 }
