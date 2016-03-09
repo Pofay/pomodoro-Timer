@@ -1,5 +1,8 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by GianCarlo on 3/8/2016.
  */
@@ -30,7 +33,16 @@ public class PomodoroTask implements Task {
     }
 
     @Override
-    public void addTime() {
+    public void addTimeSpent() {
         timeSpent += 1000L;
+        sleep(1);
+    }
+
+    protected void sleep(int timeOut) {
+        try {
+            TimeUnit.SECONDS.sleep(timeOut);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

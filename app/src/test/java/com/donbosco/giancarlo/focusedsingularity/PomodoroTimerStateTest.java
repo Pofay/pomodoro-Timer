@@ -20,7 +20,13 @@ public class PomodoroTimerStateTest {
 
     @Test
     public void ItShouldAddTimeSpentToATaskOnExecute() {
-        Task task = new PomodoroTask("Programming", 2);
+        Task task = new PomodoroTask("Programming", 2) {
+
+            @Override
+            protected void sleep(int timeOut) {
+            }
+
+        };
 
         state.execute(task);
 
@@ -29,7 +35,14 @@ public class PomodoroTimerStateTest {
 
     @Test
     public void ItShouldAddTimeSpentToATask() throws Exception {
-        Task task = new PomodoroTask("Stuff", 1);
+        Task task = new PomodoroTask("Stuff", 1) {
+
+            @Override
+            protected void sleep(int timeOut) {
+            }
+
+        };
+
 
         state.execute(task);
 
