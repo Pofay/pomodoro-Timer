@@ -6,7 +6,7 @@ package com.donbosco.giancarlo.focusedsingularity;
 public class PomodoroTimer {
 
     private PomodoroTask currentTask;
-    private PomodoroTimerState state;
+    private TaskState state;
     private Long pomodoroDuration;
 
     public void setTask(PomodoroTask task) {
@@ -24,7 +24,7 @@ public class PomodoroTimer {
     public void stop() {
     }
 
-    public PomodoroTimerState getState() {
+    public TaskState getState() {
         return state;
     }
 

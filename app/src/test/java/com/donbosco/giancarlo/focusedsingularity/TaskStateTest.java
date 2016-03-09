@@ -10,9 +10,9 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by GianCarlo on 3/9/2016.
  */
-public class PomodoroTimerStateTest {
+public class TaskStateTest {
 
-    private PomodoroTimerState state;
+    private TaskState state;
 
     @Before
     public void WhenInWorkingState() {
