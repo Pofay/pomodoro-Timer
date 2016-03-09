@@ -17,13 +17,12 @@ public class PomodoroTimer {
     }
 
     public void start() {
-
     }
 
     public void stop() {
     }
 
-   
+
     public void setPomodoroDuration(long pomodoroDuration) {
         this.pomodoroDuration = pomodoroDuration;
     }
