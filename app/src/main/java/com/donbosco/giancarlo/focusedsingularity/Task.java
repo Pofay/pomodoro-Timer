@@ -10,4 +10,6 @@ public interface Task {
     void addTimeSpent();
 
     Long getTimeEstimateInSeconds();
+
+
 }

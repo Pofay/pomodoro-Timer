@@ -7,6 +7,7 @@ public class PomodoroTimer {
 
     private PomodoroTask currentTask;
     private PomodoroTimerState state;
+    private Long pomodoroDuration;
 
     public void setTask(PomodoroTask task) {
         this.currentTask = task;
@@ -25,5 +26,13 @@ public class PomodoroTimer {
 
     public PomodoroTimerState getState() {
         return state;
+    }
+
+    public void setPomodoroDuration(long pomodoroDuration) {
+        this.pomodoroDuration = pomodoroDuration;
+    }
+
+    public Long getPomodoroDuration() {
+        return pomodoroDuration;
     }
 }

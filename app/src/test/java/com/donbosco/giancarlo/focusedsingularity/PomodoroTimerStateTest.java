@@ -1,6 +1,7 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -18,6 +19,7 @@ public class PomodoroTimerStateTest {
         state = SimplePomodoroTimerState.WORKING;
     }
 
+    @Ignore
     @Test
     public void ItShouldAddTimeSpentToATaskOnExecute() {
         Task task = new PomodoroTask("Programming", 2) {
@@ -33,6 +35,7 @@ public class PomodoroTimerStateTest {
         assertThat(task.getTimeSpent(), is(2000L));
     }
 
+    @Ignore
     @Test
     public void ItShouldAddTimeSpentToATask() throws Exception {
         Task task = new PomodoroTask("Stuff", 1) {

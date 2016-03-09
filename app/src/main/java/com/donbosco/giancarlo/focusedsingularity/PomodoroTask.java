@@ -10,14 +10,12 @@ public class PomodoroTask implements Task {
 
     private final long timeEstimateInSeconds;
     private final String name;
-    private boolean started;
     private long timeSpent;
 
     public PomodoroTask(String name, long timeEstimateInSeconds) {
         this.name = name;
         this.timeEstimateInSeconds = timeEstimateInSeconds;
     }
-
 
     public String getName() {
         return name;
