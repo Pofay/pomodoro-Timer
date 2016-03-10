@@ -48,5 +48,8 @@ public class TaskStateTest {
         assertThat(task.getCurrentState(), is(expectedState));
     }
 
+    // Test for on task start transition to working then break;
+    // Or test that task is on working state when created;
+
 
 }
