@@ -5,6 +5,7 @@ import org.hamcrest.CoreMatchers;
 
 import org.hamcrest.core.Is;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -46,10 +47,24 @@ public class TaskStateTest {
         assertThat(task.getTimeSpent(), is(2000L));
     }
 
+    // Change Reference to another class, maybe a Fake for the Task
     @Test
-    public void ItShouldTransitionToBreakStateAfterWorking() {
+    public void WhenTaskIsDoneItShouldTransitionToBreakState() {
+        Task task = new PomodoroTask("Stuff", 4000L) {
+            @Override
+            protected void sleep(int timeOut) {
+            }
+        };
 
+        TaskState state = PomodoroTaskState.WORKING;
+
+        state.execute(task);
+
+        TaskState expectedState = PomodoroTaskState.BREAK;
+        assertThat(task.getCurrentState(), is(expectedState));
     }
+
+
 
 
 }

@@ -11,6 +11,12 @@ public enum PomodoroTaskState implements TaskState {
                 task.addTimeSpent();
             }
         }
+    },
+    BREAK{
+        @Override
+        public void execute(Task task) {
+
+        }
     }
 
 }

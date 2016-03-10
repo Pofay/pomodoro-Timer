@@ -26,6 +26,11 @@ public class PomodoroTask implements Task {
     }
 
     @Override
+    public TaskState getCurrentState() {
+        return PomodoroTaskState.BREAK;
+    }
+
+    @Override
     public Long getTimeSpent() {
         return timeSpent;
     }
