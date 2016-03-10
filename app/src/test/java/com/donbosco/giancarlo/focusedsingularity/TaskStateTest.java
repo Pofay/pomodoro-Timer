@@ -17,7 +17,7 @@ public class TaskStateTest {
 
 
     @Test
-    public void ItShouldExecuteFor3SecondsWhenSetToWorking() throws Exception {
+    public void ItShouldExecuteTaskUpToItsTimeEstimateWhenSetToWorking() throws Exception {
         Task task = new PomodoroTask("Testing", 3000L) {
             @Override
             protected void sleep(int timeOut) {
@@ -29,22 +29,6 @@ public class TaskStateTest {
         state.execute(task);
 
         assertThat(task.getTimeSpent(), is(3000L));
-    }
-
-    @Test
-    public void ItShouldExecuteATaskFor2SecondsWhenStateIsSetToWorking() {
-        Task task = new PomodoroTask("Test", 2000L) {
-            @Override
-            protected void sleep(int timeOut) {
-
-            }
-        };
-
-        TaskState state = PomodoroTaskState.WORKING;
-
-        state.execute(task);
-
-        assertThat(task.getTimeSpent(), is(2000L));
     }
 
     // Change Reference to another class, maybe a Fake for the Task
@@ -63,8 +47,6 @@ public class TaskStateTest {
         TaskState expectedState = PomodoroTaskState.BREAK;
         assertThat(task.getCurrentState(), is(expectedState));
     }
-
-
 
 
 }
