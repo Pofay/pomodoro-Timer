@@ -7,7 +7,9 @@ public enum PomodoroTaskState implements TaskState {
     WORKING {
         @Override
         public void execute(Task task) {
-
+            task.addTimeSpent();
+            task.addTimeSpent();
+            task.addTimeSpent();
         }
     }
 
