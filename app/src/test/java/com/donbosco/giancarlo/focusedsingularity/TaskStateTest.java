@@ -30,5 +30,21 @@ public class TaskStateTest {
         assertThat(task.getTimeSpent(), is(3000L));
     }
 
+    @Test
+    public void ItShouldStartATaskFor2SecondsWhenStateIsSetToWorking() {
+        Task task = new PomodoroTask("Test", 2000L) {
+            @Override
+            protected void sleep(int timeOut) {
+
+            }
+        };
+
+        TaskState state = PomodoroTaskState.WORKING;
+
+        state.execute(task);
+
+        assertThat(task.getTimeSpent(), is(2000L));
+    }
+
 
 }
