@@ -16,7 +16,7 @@ public class TaskStateTest {
 
 
     @Test
-    public void ItShouldAddTimeToItsTaskOnWorkingState() throws Exception {
+    public void ItShouldExecuteFor3SecondsWhenSetToWorking() throws Exception {
         Task task = new PomodoroTask("Testing", 3000L) {
             @Override
             protected void sleep(int timeOut) {
@@ -31,7 +31,7 @@ public class TaskStateTest {
     }
 
     @Test
-    public void ItShouldStartATaskFor2SecondsWhenStateIsSetToWorking() {
+    public void ItShouldExecuteATaskFor2SecondsWhenStateIsSetToWorking() {
         Task task = new PomodoroTask("Test", 2000L) {
             @Override
             protected void sleep(int timeOut) {
@@ -44,6 +44,11 @@ public class TaskStateTest {
         state.execute(task);
 
         assertThat(task.getTimeSpent(), is(2000L));
+    }
+
+    @Test
+    public void ItShouldTransitionToBreakStateAfterWorking() {
+
     }
 
 
