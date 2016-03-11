@@ -20,7 +20,7 @@ import static org.junit.Assert.assertThat;
 public class TaskTest {
 
 
-    public class StateTransitionContext {
+    public class ATaskShould {
 
         Task task;
 
@@ -34,25 +34,13 @@ public class TaskTest {
         }
 
         @Test
-        public void ItShouldExecuteTaskUpToItsTimeEstimateWhenSetToWorking() throws Exception {
+        public void HaveItsCurrentStateToWorkingOnCreation() throws Exception {
+            TaskState expectedState = PomodoroTaskState.WORKING;
 
-            TaskState state = PomodoroTaskState.WORKING;
-
-            state.execute(task);
-
-            assertThat(task.getTimeSpent(), is(3000L));
+            assertThat(task.getCurrentState(), is(expectedState));
         }
 
         // Change Reference to another class, maybe a Fake for the Task
-        @Test
-        public void WhenTaskIsDoneItShouldTransitionToBreakState() {
-            TaskState state = PomodoroTaskState.WORKING;
-
-            state.execute(task);
-
-            TaskState expectedState = PomodoroTaskState.BREAK;
-            assertThat(task.getCurrentState(), is(expectedState));
-        }
 
         // Test for on task start transition to working then break;
         // Or test that task is on working state when created;
