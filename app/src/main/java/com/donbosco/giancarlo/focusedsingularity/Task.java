@@ -12,4 +12,6 @@ public interface Task {
     Long getTimeEstimateInSeconds();
 
     TaskState getCurrentState();
+
+    void start();
 }

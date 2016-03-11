@@ -11,10 +11,12 @@ public class PomodoroTask implements Task {
     private final long timeEstimateInSeconds;
     private final String name;
     private long timeSpent;
+    private TaskState state;
 
     public PomodoroTask(String name, long timeEstimateInSeconds) {
         this.name = name;
         this.timeEstimateInSeconds = timeEstimateInSeconds;
+        state = PomodoroTaskState.WORKING;
     }
 
     public String getName() {
@@ -28,6 +30,11 @@ public class PomodoroTask implements Task {
     @Override
     public TaskState getCurrentState() {
         return PomodoroTaskState.WORKING;
+    }
+
+    @Override
+    public void start() {
+        state.execute(this);
     }
 
     @Override

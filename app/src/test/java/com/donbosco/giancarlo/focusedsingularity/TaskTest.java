@@ -40,6 +40,13 @@ public class TaskTest {
             assertThat(task.getCurrentState(), is(expectedState));
         }
 
+        @Test
+        public void HaveItsTimeAddedOnStart(){
+            task.start();
+
+            assertThat(task.getTimeSpent(), is(3000L));
+        }
+
         // Change Reference to another class, maybe a Fake for the Task
 
         // Test for on task start transition to working then break;
