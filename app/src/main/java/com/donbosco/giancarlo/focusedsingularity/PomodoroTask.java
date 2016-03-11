@@ -29,12 +29,17 @@ public class PomodoroTask implements Task {
 
     @Override
     public TaskState getCurrentState() {
-        return PomodoroTaskState.WORKING;
+        return state;
     }
 
     @Override
     public void start() {
         state.execute(this);
+    }
+
+    @Override
+    public void setState(TaskState state) {
+        this.state = state;
     }
 
     @Override

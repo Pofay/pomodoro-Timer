@@ -10,6 +10,7 @@ public enum PomodoroTaskState implements TaskState {
             for (int i = 0; i < task.getTimeEstimateInSeconds(); i += 1000) {
                 task.addTimeSpent();
             }
+            task.setState(BREAK);
         }
     },
     BREAK{

@@ -47,10 +47,18 @@ public class TaskTest {
             assertThat(task.getTimeSpent(), is(3000L));
         }
 
+        @Test
+        public void TransitionToBreakStateCompletingStart(){
+            task.start();
+
+            TaskState expectedState = PomodoroTaskState.BREAK;
+            assertThat(task.getCurrentState(), is(expectedState));
+        }
+
         // Change Reference to another class, maybe a Fake for the Task
 
         // Test for on task start transition to working then break;
-        // Or test that task is on working state when created;
+
     }
 
 }

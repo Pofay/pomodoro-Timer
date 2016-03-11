@@ -14,4 +14,6 @@ public interface Task {
     TaskState getCurrentState();
 
     void start();
+
+    void setState(TaskState state);
 }
