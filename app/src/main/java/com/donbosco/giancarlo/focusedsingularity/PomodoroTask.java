@@ -54,6 +54,11 @@ public class PomodoroTask implements Task {
     }
 
     @Override
+    public void stop() {
+        state.stop(this);
+    }
+
+    @Override
     public Long getTimeSpent() {
         return timeSpent;
     }

@@ -6,4 +6,6 @@ package com.donbosco.giancarlo.focusedsingularity;
 public interface TaskState {
 
     void execute(Task task);
+
+    void stop(Task task);
 }

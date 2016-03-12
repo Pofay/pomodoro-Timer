@@ -7,16 +7,37 @@ public enum PomodoroTaskState implements TaskState {
     WORKING {
         @Override
         public void execute(Task task) {
-            for (int i = 0; i < task.getPomodoroDuration(); i += 1000) {
+            int ranDuration = 0;
+            for (; ranDuration < task.getPomodoroDuration(); ranDuration += 1000) {
                 task.addTimeSpent();
             }
             task.setState(BREAK);
+        }
+
+        @Override
+        public void stop(Task task) {
+            task.setState(STOPPED);
         }
     },
     BREAK {
         @Override
         public void execute(Task task) {
 
+        }
+
+        @Override
+        public void stop(Task task) {
+            task.setState(STOPPED);
+        }
+    },
+    STOPPED{
+
+        @Override
+        public void execute(Task task) {
+        }
+
+        @Override
+        public void stop(Task task) {
         }
     }
 

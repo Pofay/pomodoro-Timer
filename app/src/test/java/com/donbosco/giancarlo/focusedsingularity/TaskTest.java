@@ -64,12 +64,32 @@ public class TaskTest {
 
     }
 
-    public class StateContext {
+    public class TaskStartedContext {
 
-        @Test
-        public void testName() throws Exception {
 
+        private Task task;
+
+        @Before
+        public void WithATaskThatIsStarted() throws Exception {
+            task = new PomodoroTask("Typing", 4000L) {
+                @Override
+                protected void sleep(int timeOut) {
+                }
+            };
+
+            task.start();
         }
 
+        @Test
+        public void ItShouldBeInTheStoppedStateOnStop() throws Exception {
+            task.stop();
+
+            TaskState expectedState = PomodoroTaskState.STOPPED;
+            assertThat(task.getCurrentState(), is(expectedState));
+        }
+
+
+
     }
+
 }
