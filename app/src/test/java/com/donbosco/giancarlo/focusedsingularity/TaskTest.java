@@ -105,9 +105,11 @@ public class TaskTest {
         }
 
         @Test
-        public void ItShouldNotAddTimeSpentWhenStartingAgain() {
+        public void ItShouldNotAddTimeSpentWhenStartedOnStoppedState() {
             task.start();
 
+            TaskState expectedState = PomodoroTaskState.STOPPED;
+            assertThat(task.getCurrentState(), is(expectedState));
             assertThat(task.getTimeSpent(), is(0L));
         }
 
