@@ -20,17 +20,19 @@ import static org.junit.Assert.assertThat;
 public class TaskTest {
 
 
-    public class ATaskShould {
+    public class ATask {
 
         Task task;
 
         @Before
-        public void setUp() {
+        public void WithA3SecondEstimateAnd2SecondPomodoroDurationShould() {
             task = new PomodoroTask("Testing", 3000L) {
                 @Override
                 protected void sleep(int timeOut) {
                 }
             };
+
+            task.setPomodoroDuration(2000L);
         }
 
         @Test
@@ -41,19 +43,20 @@ public class TaskTest {
         }
 
         @Test
-        public void HaveItsTimeAddedOnStart(){
+        public void AddTimeBasedOnSetPomodoroDuration() {
             task.start();
 
-            assertThat(task.getTimeSpent(), is(3000L));
+            assertThat(task.getTimeSpent(), is(2000L));
         }
 
         @Test
-        public void TransitionToBreakStateCompletingStart(){
+        public void TransitionToBreakStateAfterCompletingStart() {
             task.start();
 
             TaskState expectedState = PomodoroTaskState.BREAK;
             assertThat(task.getCurrentState(), is(expectedState));
         }
+
 
         // Change Reference to another class, maybe a Fake for the Task
 
@@ -61,4 +64,12 @@ public class TaskTest {
 
     }
 
+    public class StateContext {
+
+        @Test
+        public void testName() throws Exception {
+
+        }
+
+    }
 }

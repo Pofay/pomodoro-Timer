@@ -16,4 +16,8 @@ public interface Task {
     void start();
 
     void setState(TaskState state);
+
+    long getPomodoroDuration();
+
+    void setPomodoroDuration(long pomodoroDuration);
 }

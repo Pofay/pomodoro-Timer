@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class PomodoroTask implements Task {
 
     private final long timeEstimateInSeconds;
+    private long pomodoroDuration;
     private final String name;
     private long timeSpent;
     private TaskState state;
@@ -40,6 +41,16 @@ public class PomodoroTask implements Task {
     @Override
     public void setState(TaskState state) {
         this.state = state;
+    }
+
+    @Override
+    public long getPomodoroDuration() {
+        return pomodoroDuration;
+    }
+
+    @Override
+    public void setPomodoroDuration(long pomodoroDuration) {
+        this.pomodoroDuration = pomodoroDuration;
     }
 
     @Override

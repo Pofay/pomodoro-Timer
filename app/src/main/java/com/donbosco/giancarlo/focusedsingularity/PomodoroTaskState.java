@@ -7,13 +7,13 @@ public enum PomodoroTaskState implements TaskState {
     WORKING {
         @Override
         public void execute(Task task) {
-            for (int i = 0; i < task.getTimeEstimateInSeconds(); i += 1000) {
+            for (int i = 0; i < task.getPomodoroDuration(); i += 1000) {
                 task.addTimeSpent();
             }
             task.setState(BREAK);
         }
     },
-    BREAK{
+    BREAK {
         @Override
         public void execute(Task task) {
 
