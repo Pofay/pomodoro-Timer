@@ -87,9 +87,28 @@ public class TaskTest {
             TaskState expectedState = PomodoroTaskState.STOPPED;
             assertThat(task.getCurrentState(), is(expectedState));
         }
-
-
-
     }
 
+    public class TaskStoppedContext {
+
+        private Task task;
+
+        @Before
+        public void WithATaskThatIsStopped() throws Exception {
+            task = new PomodoroTask("Rolling", 6000L) {
+                @Override
+                protected void sleep(int timeOut) {
+                }
+            };
+
+            task.stop();
+        }
+
+        @Test
+        public void ItShouldNotAddTimeSpentWhenStartingAgain() {
+            task.start();
+
+            assertThat(task.getTimeSpent(), is(0L));
+        }
+    }
 }
