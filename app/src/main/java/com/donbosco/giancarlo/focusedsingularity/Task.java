@@ -22,4 +22,6 @@ public interface Task {
     void setPomodoroDuration(long pomodoroDuration);
 
     void stop();
+
+    void reset();
 }

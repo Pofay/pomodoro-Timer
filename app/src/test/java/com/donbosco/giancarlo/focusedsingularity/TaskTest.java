@@ -110,5 +110,13 @@ public class TaskTest {
 
             assertThat(task.getTimeSpent(), is(0L));
         }
+
+        @Test
+        public void ItShouldBeInWorkingStateAgainOnReset(){
+            task.reset();
+
+            TaskState expectedState = PomodoroTaskState.WORKING;
+            assertThat(task.getCurrentState(), is(expectedState));
+        }
     }
 }

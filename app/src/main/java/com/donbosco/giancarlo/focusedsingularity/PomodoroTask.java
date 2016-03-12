@@ -59,6 +59,11 @@ public class PomodoroTask implements Task {
     }
 
     @Override
+    public void reset() {
+        setState(PomodoroTaskState.WORKING);
+    }
+
+    @Override
     public Long getTimeSpent() {
         return timeSpent;
     }
