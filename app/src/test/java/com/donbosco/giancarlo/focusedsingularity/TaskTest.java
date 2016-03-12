@@ -57,36 +57,6 @@ public class TaskTest {
             assertThat(task.getCurrentState(), is(expectedState));
         }
 
-
-        // Change Reference to another class, maybe a Fake for the Task
-
-        // Test for on task start transition to working then break;
-
-    }
-
-    public class TaskStartedContext {
-
-
-        private Task task;
-
-        @Before
-        public void WithATaskThatIsStarted() throws Exception {
-            task = new PomodoroTask("Typing", 4000L) {
-                @Override
-                protected void sleep(int timeOut) {
-                }
-            };
-
-            task.start();
-        }
-
-        @Test
-        public void ItShouldBeInTheStoppedStateOnStop() throws Exception {
-            task.stop();
-
-            TaskState expectedState = PomodoroTaskState.STOPPED;
-            assertThat(task.getCurrentState(), is(expectedState));
-        }
     }
 
     public class TaskStoppedContext {
@@ -101,20 +71,26 @@ public class TaskTest {
                 }
             };
 
+            task.start();
             task.stop();
+        }
+
+        @Test
+        public void ItShouldBeInTheStoppedState() {
+
+            TaskState expectedState = PomodoroTaskState.STOPPED;
+            assertThat(task.getCurrentState(), is(expectedState));
         }
 
         @Test
         public void ItShouldNotAddTimeSpentWhenStartedOnStoppedState() {
             task.start();
 
-            TaskState expectedState = PomodoroTaskState.STOPPED;
-            assertThat(task.getCurrentState(), is(expectedState));
             assertThat(task.getTimeSpent(), is(0L));
         }
 
         @Test
-        public void ItShouldBeInWorkingStateAgainOnReset(){
+        public void ItShouldBeInWorkingStateAgainOnReset() {
             task.reset();
 
             TaskState expectedState = PomodoroTaskState.WORKING;
