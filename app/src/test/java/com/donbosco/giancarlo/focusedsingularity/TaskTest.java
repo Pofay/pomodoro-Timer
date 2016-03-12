@@ -57,6 +57,21 @@ public class TaskTest {
             assertThat(task.getCurrentState(), is(expectedState));
         }
 
+        @Test
+        public void IncreaseItsPomodoroCountOnFullStartToBreak(){
+            task.start();
+
+            assertThat(task.getPomodoroCount(), is(1));
+        }
+
+        @Test
+        public void IncreaseItsPomodoroCountFor2(){
+            task.start();
+            task.start();
+
+            assertThat(task.getPomodoroCount(), is(2));
+        }
+
     }
 
     public class TaskStoppedContext {

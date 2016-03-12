@@ -22,7 +22,7 @@ public enum PomodoroTaskState implements TaskState {
     BREAK {
         @Override
         public void execute(Task task) {
-
+            
         }
 
         @Override

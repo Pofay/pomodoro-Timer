@@ -64,6 +64,11 @@ public class PomodoroTask implements Task {
     }
 
     @Override
+    public int getPomodoroCount() {
+        return 1;
+    }
+
+    @Override
     public Long getTimeSpent() {
         return timeSpent;
     }
