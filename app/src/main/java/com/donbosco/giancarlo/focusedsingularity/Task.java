@@ -26,4 +26,6 @@ public interface Task {
     void reset();
 
     int getPomodoroCount();
+
+    void performPomodoroCountDown();
 }

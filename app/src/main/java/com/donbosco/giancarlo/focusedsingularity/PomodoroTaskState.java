@@ -8,9 +8,10 @@ public enum PomodoroTaskState implements TaskState {
         @Override
         public void execute(Task task) {
             int ranDuration = 0;
-            for (; ranDuration < task.getPomodoroDuration(); ranDuration += 1000) {
-                task.addTimeSpent();
-            }
+            //for (; ranDuration < task.getPomodoroDuration(); ranDuration += 1000) {
+            //    task.addTimeSpent();
+            //}
+            task.performPomodoroCountDown();
             task.setState(BREAK);
         }
 

@@ -5,6 +5,7 @@ import org.hamcrest.CoreMatchers;
 
 import org.hamcrest.core.Is;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -57,21 +58,6 @@ public class TaskTest {
             assertThat(task.getCurrentState(), is(expectedState));
         }
 
-        @Test
-        public void IncreaseItsPomodoroCountOnFullStartToBreak(){
-            task.start();
-
-            assertThat(task.getPomodoroCount(), is(1));
-        }
-
-        @Test
-        public void IncreaseItsPomodoroCountFor2(){
-            task.start();
-            task.start();
-
-            assertThat(task.getPomodoroCount(), is(2));
-        }
-
     }
 
     public class TaskStoppedContext {
@@ -97,6 +83,7 @@ public class TaskTest {
             assertThat(task.getCurrentState(), is(expectedState));
         }
 
+        @Ignore
         @Test
         public void ItShouldNotAddTimeSpentWhenStartedOnStoppedState() {
             task.start();
