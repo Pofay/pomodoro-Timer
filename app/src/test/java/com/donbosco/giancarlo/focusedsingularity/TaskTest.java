@@ -1,7 +1,6 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
 
-import org.hamcrest.core.IsEqual;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +20,7 @@ public class TaskTest {
     public class ATask {
 
         String ticks = "";
-        int calls;
+        int tickCalls;
         Task task;
 
         @Before
@@ -29,7 +28,7 @@ public class TaskTest {
             task = new PomodoroTask("Testing", 3000L) {
                 @Override
                 protected void tick() {
-                    calls++;
+                    tickCalls++;
                     ticks += "T";
                     sleep(1);
                 }
@@ -54,7 +53,7 @@ public class TaskTest {
         public void Ticks2Times() {
             task.start();
 
-            assertThat(calls, is(2));
+            assertThat(tickCalls, is(2));
             assertThat(ticks, is("TsTs"));
         }
 
