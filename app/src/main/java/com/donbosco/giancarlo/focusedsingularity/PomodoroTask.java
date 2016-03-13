@@ -39,12 +39,7 @@ public class PomodoroTask implements Task {
     public void setState(TaskState state) {
         this.state = state;
     }
-
-    @Override
-    public long getPomodoroDuration() {
-        return pomodoroDuration;
-    }
-
+    
     @Override
     public void setPomodoroDuration(long pomodoroDuration) {
         this.pomodoroDuration = pomodoroDuration;

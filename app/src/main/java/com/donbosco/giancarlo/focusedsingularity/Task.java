@@ -15,8 +15,6 @@ public interface Task {
 
     void setState(TaskState state);
 
-    long getPomodoroDuration();
-
     void setPomodoroDuration(long pomodoroDuration);
 
     void stop();
