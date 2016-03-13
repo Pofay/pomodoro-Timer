@@ -1,6 +1,5 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -8,24 +7,22 @@ import java.util.concurrent.TimeUnit;
  */
 public class PomodoroTask implements Task {
 
-    private final long timeEstimateInSeconds;
     private long pomodoroDuration;
-    private final String name;
     private long timeSpent;
     private TaskState state;
+    private final PomodoroTaskDetails details;
 
     public PomodoroTask(String name, long timeEstimateInSeconds) {
-        this.name = name;
-        this.timeEstimateInSeconds = timeEstimateInSeconds;
+        details = new PomodoroTaskDetails(name, timeEstimateInSeconds);
         reset();
     }
 
     public String getName() {
-        return name;
+        return details.name;
     }
 
     public Long getTimeEstimateInSeconds() {
-        return timeEstimateInSeconds;
+        return details.timeEstimateInSeconds;
     }
 
     @Override
@@ -70,9 +67,9 @@ public class PomodoroTask implements Task {
 
     @Override
     public void performPomodoroCountDown() {
-         for (int i =0; i < pomodoroDuration; i+= 1000){
-             addTimeSpent();
-         }
+        for (int i = 0; i < pomodoroDuration; i += 1000) {
+            addTimeSpent();
+        }
     }
 
     private void addTimeSpent() {
@@ -92,4 +89,5 @@ public class PomodoroTask implements Task {
             e.printStackTrace();
         }
     }
+
 }
