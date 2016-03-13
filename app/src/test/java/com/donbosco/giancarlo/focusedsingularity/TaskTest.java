@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 public class TaskTest {
 
 
-    public class ATask {
+    public class TaskTickingContext {
 
         String ticks = "";
         int tickCalls;
@@ -42,13 +42,6 @@ public class TaskTest {
         }
 
         @Test
-        public void HaveItsCurrentStateToWorkingOnCreation() throws Exception {
-            TaskState expectedState = PomodoroTaskState.WORKING;
-
-            assertThat(task.getCurrentState(), is(expectedState));
-        }
-
-        @Test
         public void Ticks2Times() {
             task.start();
 
@@ -61,15 +54,6 @@ public class TaskTest {
 
             assertThat(ticks, is("TsTs"));
         }
-
-        @Test
-        public void TransitionToBreakStateAfterCompletingStart() {
-            task.start();
-
-            TaskState expectedState = PomodoroTaskState.BREAK;
-            assertThat(task.getCurrentState(), is(expectedState));
-        }
-
     }
 
     public class TaskStoppedContext {
@@ -100,14 +84,6 @@ public class TaskTest {
             task.start();
 
             assertThat(task.getTimeSpent(), is(0L));
-        }
-
-        @Test
-        public void ItShouldBeInWorkingStateAgainOnReset() {
-            task.reset();
-
-            TaskState expectedState = PomodoroTaskState.WORKING;
-            assertThat(task.getCurrentState(), is(expectedState));
         }
     }
 }
