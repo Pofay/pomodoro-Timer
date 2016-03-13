@@ -54,6 +54,12 @@ public class TaskTest {
             task.start();
 
             assertThat(tickCalls, is(2));
+        }
+
+        @Test
+        public void SleepsInBetweenTicks(){
+            task.start();
+
             assertThat(ticks, is("TsTs"));
         }
 
