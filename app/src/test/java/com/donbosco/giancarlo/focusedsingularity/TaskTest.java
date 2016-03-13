@@ -30,7 +30,6 @@ public class TaskTest {
                 protected void tick() {
                     tickCalls++;
                     ticks += "T";
-                    sleep(1);
                 }
 
                 @Override

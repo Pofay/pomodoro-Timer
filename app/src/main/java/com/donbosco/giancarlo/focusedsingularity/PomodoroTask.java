@@ -39,7 +39,7 @@ public class PomodoroTask implements Task {
     public void setState(TaskState state) {
         this.state = state;
     }
-    
+
     @Override
     public void setPomodoroDuration(long pomodoroDuration) {
         this.pomodoroDuration = pomodoroDuration;
@@ -64,12 +64,12 @@ public class PomodoroTask implements Task {
     public void performPomodoroCountDown() {
         for (int i = 0; i < pomodoroDuration; i += 1000) {
             tick();
+            sleep(1);
         }
     }
 
     protected void tick() {
         timeSpent += 1000L;
-        sleep(1);
     }
 
     @Override
