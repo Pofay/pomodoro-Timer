@@ -72,7 +72,7 @@ public class PomodoroTask implements Task {
         }
     }
 
-    private void addTimeSpent() {
+    protected void addTimeSpent() {
         timeSpent += 1000L;
         sleep(1);
     }

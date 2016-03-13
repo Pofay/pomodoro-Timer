@@ -44,7 +44,7 @@ public class TaskTest {
         }
 
         @Test
-        public void AddTimeBasedOnSetPomodoroDuration() {
+        public void CountsDownOnStart() {
             task.start();
 
             assertThat(task.getTimeSpent(), is(2000L));
