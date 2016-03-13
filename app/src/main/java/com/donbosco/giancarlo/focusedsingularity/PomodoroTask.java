@@ -68,11 +68,11 @@ public class PomodoroTask implements Task {
     @Override
     public void performPomodoroCountDown() {
         for (int i = 0; i < pomodoroDuration; i += 1000) {
-            addTimeSpent();
+            tick();
         }
     }
 
-    protected void addTimeSpent() {
+    protected void tick() {
         timeSpent += 1000L;
         sleep(1);
     }

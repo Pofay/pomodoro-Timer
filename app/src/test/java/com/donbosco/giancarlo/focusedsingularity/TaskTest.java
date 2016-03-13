@@ -1,11 +1,8 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
 
-import org.hamcrest.CoreMatchers;
-
-import org.hamcrest.core.Is;
+import org.hamcrest.core.IsEqual;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,13 +20,23 @@ public class TaskTest {
 
     public class ATask {
 
+        String ticks = "";
+        int calls;
         Task task;
 
         @Before
         public void WithA3SecondEstimateAnd2SecondPomodoroDurationShould() {
             task = new PomodoroTask("Testing", 3000L) {
                 @Override
+                protected void tick() {
+                    calls++;
+                    ticks += "T";
+                    sleep(1);
+                }
+
+                @Override
                 protected void sleep(int timeOut) {
+                    ticks += "s";
                 }
             };
 
@@ -44,10 +51,11 @@ public class TaskTest {
         }
 
         @Test
-        public void CountsDownOnStart() {
+        public void Ticks2Times() {
             task.start();
 
-            assertThat(task.getTimeSpent(), is(2000L));
+            assertThat(calls, is(2));
+            assertThat(ticks, is("TsTs"));
         }
 
         @Test
