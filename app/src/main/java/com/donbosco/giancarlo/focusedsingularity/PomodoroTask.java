@@ -17,7 +17,7 @@ public class PomodoroTask implements Task {
     public PomodoroTask(String name, long timeEstimateInSeconds) {
         this.name = name;
         this.timeEstimateInSeconds = timeEstimateInSeconds;
-        state = PomodoroTaskState.WORKING;
+        reset();
     }
 
     public String getName() {

@@ -83,7 +83,6 @@ public class TaskTest {
             assertThat(task.getCurrentState(), is(expectedState));
         }
 
-        @Ignore
         @Test
         public void ItShouldNotAddTimeSpentWhenStartedOnStoppedState() {
             task.start();
