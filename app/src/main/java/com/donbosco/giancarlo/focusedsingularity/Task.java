@@ -7,8 +7,6 @@ public interface Task {
 
     Long getTimeSpent();
 
-    void addTimeSpent();
-
     Long getTimeEstimateInSeconds();
 
     TaskState getCurrentState();

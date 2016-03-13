@@ -75,15 +75,14 @@ public class PomodoroTask implements Task {
          }
     }
 
-    @Override
-    public Long getTimeSpent() {
-        return timeSpent;
+    private void addTimeSpent() {
+        timeSpent += 1000L;
+        sleep(1);
     }
 
     @Override
-    public void addTimeSpent() {
-        timeSpent += 1000L;
-        sleep(1);
+    public Long getTimeSpent() {
+        return timeSpent;
     }
 
     protected void sleep(int timeOut) {
