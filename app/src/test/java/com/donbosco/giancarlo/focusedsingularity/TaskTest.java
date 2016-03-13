@@ -49,7 +49,7 @@ public class TaskTest {
         }
 
         @Test
-        public void SleepsInBetweenTicks(){
+        public void SleepsInBetweenTicks() {
             task.start();
 
             assertThat(ticks, is("TsTs"));
@@ -59,31 +59,47 @@ public class TaskTest {
     public class TaskStoppedContext {
 
         private Task task;
+        int tickCalls;
+        int sleepCalls;
 
         @Before
-        public void WithATaskThatIsStopped() throws Exception {
+        public void ATaskWithADurationOf4SecondsThatIsStopped() throws Exception {
             task = new PomodoroTask("Rolling", 6000L) {
                 @Override
-                protected void sleep(int timeOut) {
+                protected void tick() {
+                    tickCalls++;
                 }
+
+                @Override
+                protected void sleep(int timeOut) {
+                    sleepCalls++;
+                }
+
+
             };
 
-            task.start();
+            task.setPomodoroDuration(4000L);
+
             task.stop();
         }
 
         @Test
-        public void ItShouldBeInTheStoppedState() {
+        public void ItShouldNotCallTickAndSleepWhenStartedAgainWithoutAReset() {
+            task.start();
 
-            TaskState expectedState = PomodoroTaskState.STOPPED;
-            assertThat(task.getCurrentState(), is(expectedState));
+            assertThat(tickCalls, is(0));
+            assertThat(sleepCalls, is(0));
         }
 
         @Test
-        public void ItShouldNotAddTimeSpentWhenStartedOnStoppedState() {
+        public void ItShouldCallTickAndSleep4TimesOnStartAfterReset() {
+            task.reset();
+
             task.start();
 
-            assertThat(task.getTimeSpent(), is(0L));
+            assertThat(tickCalls, is(4));
+            assertThat(sleepCalls, is(4));
         }
+
     }
 }
