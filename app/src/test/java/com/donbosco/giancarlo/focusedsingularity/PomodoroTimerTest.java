@@ -88,6 +88,15 @@ public class PomodoroTimerTest {
             timer.start();
             assertThat(ticks, is("TsTsTs"));
         }
+
+        @Test
+        public void ItsStateShouldBeSettable() {
+            PomodoroTimer timer = new PomodoroTimer();
+            timer.setState(SimpleTimerState.WORKING);
+
+            TimerState workingState = SimpleTimerState.WORKING;
+            assertThat(timer.getState(), is(workingState));
+        }
     }
 
 }

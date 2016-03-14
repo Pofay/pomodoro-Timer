@@ -19,7 +19,7 @@ public enum PomodoroTaskState implements TaskState {
     BREAK {
         @Override
         public void execute(Task task) {
-            
+
         }
 
         @Override
@@ -27,8 +27,7 @@ public enum PomodoroTaskState implements TaskState {
             task.setState(STOPPED);
         }
     },
-    STOPPED{
-
+    STOPPED {
         @Override
         public void execute(Task task) {
         }

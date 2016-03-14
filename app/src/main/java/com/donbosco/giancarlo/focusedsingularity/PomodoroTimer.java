@@ -7,6 +7,7 @@ public class PomodoroTimer implements Runnable {
 
     private Task currentTask;
     private Long pomodoroDuration;
+    private TimerState state;
 
     public void setTask(Task task) {
         this.currentTask = task;
@@ -19,6 +20,11 @@ public class PomodoroTimer implements Runnable {
     public void start() {
         executeTimer();
     }
+
+    public void setState(TimerState state){
+        this.state = state;
+    }
+
 
 
     protected void executeTimer() {
@@ -41,4 +47,7 @@ public class PomodoroTimer implements Runnable {
         return pomodoroDuration;
     }
 
+    public TimerState getState() {
+        return state;
+    }
 }
