@@ -45,7 +45,4 @@ public class PomodoroTimer implements Runnable {
         return pomodoroDuration;
     }
 
-    public TimerState getState() {
-        return state;
-    }
 }
