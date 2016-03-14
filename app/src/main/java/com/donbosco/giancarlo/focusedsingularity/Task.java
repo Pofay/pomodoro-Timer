@@ -5,8 +5,6 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public interface Task {
 
-    Long getTimeSpent();
-
     Long getTimeEstimateInSeconds();
 
     TaskState getCurrentState();
@@ -20,8 +18,6 @@ public interface Task {
     void stop();
 
     void reset();
-
-    int getPomodoroCount();
 
     void performPomodoroCountDown();
 }

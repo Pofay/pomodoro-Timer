@@ -54,12 +54,7 @@ public class PomodoroTask implements Task {
     public void reset() {
         setState(PomodoroTaskState.WORKING);
     }
-
-    @Override
-    public int getPomodoroCount() {
-        return 1;
-    }
-
+    
     @Override
     public void performPomodoroCountDown() {
         for (int i = 0; i < pomodoroDuration; i += 1000) {
@@ -70,11 +65,6 @@ public class PomodoroTask implements Task {
 
     protected void tick() {
         timeSpent += 1000L;
-    }
-
-    @Override
-    public Long getTimeSpent() {
-        return timeSpent;
     }
 
     protected void sleep(int timeOut) {
