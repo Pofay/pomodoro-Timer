@@ -54,7 +54,6 @@ public class PomodoroTimerTest {
     public class TimerExecutionContext {
 
         boolean executeTimerWasCalled;
-        String ticks = "";
 
         @Test
         public void ItCallsItsRunMethodOnStart() {
@@ -72,7 +71,7 @@ public class PomodoroTimerTest {
 
             assertThat(executeTimerWasCalled, is(true));
         }
-        
+
         @Test
         public void ItShouldCallExecuteStateOnStart() {
             PomodoroTimer timer = new PomodoroTimer();
