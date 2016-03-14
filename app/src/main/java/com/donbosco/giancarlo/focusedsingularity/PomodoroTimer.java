@@ -21,11 +21,9 @@ public class PomodoroTimer implements Runnable {
         executeTimer();
     }
 
-    public void setState(TimerState state){
+    public void setState(TimerState state) {
         this.state = state;
     }
-
-
 
     protected void executeTimer() {
         run();
@@ -33,7 +31,7 @@ public class PomodoroTimer implements Runnable {
 
     @Override
     public void run() {
-
+        state.start(this);
     }
 
     public void stop() {

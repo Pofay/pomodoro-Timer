@@ -97,6 +97,18 @@ public class PomodoroTimerTest {
             TimerState workingState = SimpleTimerState.WORKING;
             assertThat(timer.getState(), is(workingState));
         }
+
+        @Test
+
+        public void ItShouldCallExecuteStateOnStart() {
+            PomodoroTimer timer = new PomodoroTimer();
+            StateSpy stateSpy = new StateSpy();
+            timer.setState(stateSpy);
+            timer.setTask(new TaskDummy());
+            
+            timer.start();
+            assertThat(stateSpy.executeWasCalled, is(true));
+        }
     }
 
 }
