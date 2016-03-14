@@ -80,7 +80,7 @@ public class PomodoroTimerTest {
             timer.setTask(new TaskDummy());
 
             timer.start();
-            assertThat(stateSpy.executeWasCalled, is(true));
+            assertThat(stateSpy.startWasCalled, is(true));
         }
     }
 
