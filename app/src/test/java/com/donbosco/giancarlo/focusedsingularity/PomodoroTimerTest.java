@@ -73,7 +73,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldCallExecuteStateOnStart() {
+        public void ItShouldCallStateStartOnTimerStart() {
             PomodoroTimer timer = new PomodoroTimer();
             StateSpy stateSpy = new StateSpy();
             timer.setState(stateSpy);
