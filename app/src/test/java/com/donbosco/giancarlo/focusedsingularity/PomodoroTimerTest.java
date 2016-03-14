@@ -56,22 +56,21 @@ public class PomodoroTimerTest {
         boolean executeTimerWasCalled;
 
         @Test
-        public void ItCallsExecuteTimerOnStart() {
+        public void ItCallsItsRunMethodOnStart() {
             PomodoroTimer timer = new PomodoroTimer() {
-
                 @Override
-                protected void executeTimer() {
+                public void run() {
                     executeTimerWasCalled = true;
                 }
             };
-            timer.setPomodoroDuration(2000L);
 
+            timer.setPomodoroDuration(3000L);
             timer.setTask(new TaskDummy());
 
             timer.start();
+
             assertThat(executeTimerWasCalled, is(true));
         }
-
     }
 
 }

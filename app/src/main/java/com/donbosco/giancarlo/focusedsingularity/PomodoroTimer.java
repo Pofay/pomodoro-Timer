@@ -3,7 +3,7 @@ package com.donbosco.giancarlo.focusedsingularity;
 /**
  * Created by GianCarlo on 3/6/2016.
  */
-public class PomodoroTimer {
+public class PomodoroTimer implements Runnable {
 
     private Task currentTask;
     private Long pomodoroDuration;
@@ -20,7 +20,14 @@ public class PomodoroTimer {
         executeTimer();
     }
 
+
     protected void executeTimer() {
+        run();
+    }
+
+    @Override
+    public void run() {
+
     }
 
     public void stop() {
@@ -33,4 +40,5 @@ public class PomodoroTimer {
     public Long getPomodoroDuration() {
         return pomodoroDuration;
     }
+
 }
