@@ -14,4 +14,9 @@ public class TaskDummy implements Task {
     public void addOneSecond() {
 
     }
+
+    @Override
+    public long getTimeSpent() {
+        return 0;
+    }
 }

@@ -27,4 +27,9 @@ public class PomodoroTask implements Task {
         timeSpent += 1000L;
     }
 
+    @Override
+    public long getTimeSpent() {
+        return timeSpent;
+    }
+
 }

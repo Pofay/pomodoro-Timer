@@ -11,9 +11,13 @@ public class TaskSpy implements Task {
         return null;
     }
 
-
     @Override
     public void addOneSecond() {
         numberOfTickCalls++;
+    }
+
+    @Override
+    public long getTimeSpent() {
+        return 0;
     }
 }

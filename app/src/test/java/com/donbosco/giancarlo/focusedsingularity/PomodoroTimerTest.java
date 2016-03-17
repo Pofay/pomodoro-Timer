@@ -112,7 +112,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldBeAbleToCallTick7Times(){
+        public void ItShouldBeAbleToCallTick7Times() {
             PomodoroTimer timer = new PomodoroTimer();
             TaskSpy taskSpy = new TaskSpy();
 
@@ -122,6 +122,24 @@ public class PomodoroTimerTest {
             timer.start();
 
             assertThat(taskSpy.numberOfTickCalls, is(7));
+        }
+
+
+    }
+
+    public class AddingTimeSpentToTaskContext {
+
+        @Test
+        public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
+            PomodoroTimer timer = new PomodoroTimer();
+            Task task = new PomodoroTask("Programming", 8000L);
+
+            timer.setTask(task);
+            timer.setPomodoroDuration(4000L);
+
+            timer.start();
+
+            assertThat(task.getTimeSpent(), is(4000L));
         }
 
     }

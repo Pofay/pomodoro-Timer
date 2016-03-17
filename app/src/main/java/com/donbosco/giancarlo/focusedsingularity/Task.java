@@ -8,4 +8,6 @@ public interface Task {
     Long getTimeEstimateInSeconds();
 
     void addOneSecond();
+
+    long getTimeSpent();
 }
