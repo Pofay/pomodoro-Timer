@@ -111,6 +111,19 @@ public class PomodoroTimerTest {
             assertThat(taskSpy.numberOfTickCalls, is(6));
         }
 
+        @Test
+        public void ItShouldBeAbleToCallTick7Times(){
+            PomodoroTimer timer = new PomodoroTimer();
+            TaskSpy taskSpy = new TaskSpy();
+
+            timer.setTask(taskSpy);
+            timer.setPomodoroDuration(7000L);
+
+            timer.start();
+
+            assertThat(taskSpy.numberOfTickCalls, is(7));
+        }
+
     }
 
 }

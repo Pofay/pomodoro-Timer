@@ -51,7 +51,7 @@ public class PomodoroTimer implements Runnable {
     }
 
     public void performCountDown() {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < pomodoroDuration / 1000; i++)
             tick();
 
     }
