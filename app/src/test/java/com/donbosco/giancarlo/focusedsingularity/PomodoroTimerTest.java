@@ -199,8 +199,14 @@ public class PomodoroTimerTest {
 
 
         @Test
-        public void testName() throws Exception {
+        public void PerformTickingForNormalCountDownAndBreakOnStart() throws Exception {
+            timer.setBreakDuration(3000L);
 
+            timer.setPomodoroDuration(3000L);
+
+            timer.start();
+
+            assertThat(sequence,is("TsTsTssss"));
         }
 
     }
