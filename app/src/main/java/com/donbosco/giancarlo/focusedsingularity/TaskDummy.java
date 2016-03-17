@@ -10,25 +10,10 @@ public class TaskDummy implements Task {
     }
 
     @Override
-    public void start() {
-
-    }
-
-    @Override
     public void setState(TaskState state) {
 
     }
 
-
-    @Override
-    public void stop() {
-
-    }
-
-    @Override
-    public void reset() {
-
-    }
 
     @Override
     public void addOneSecond() {

@@ -7,13 +7,7 @@ public interface Task {
 
     Long getTimeEstimateInSeconds();
 
-    void start();
-
     void setState(TaskState state);
-
-    void stop();
-
-    void reset();
 
     void addOneSecond();
 }

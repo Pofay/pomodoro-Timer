@@ -14,7 +14,6 @@ public class PomodoroTask implements Task {
 
     public PomodoroTask(String name, long timeEstimateInSeconds) {
         details = new PomodoroTaskDetails(name, timeEstimateInSeconds);
-        reset();
     }
 
     public String getName() {
@@ -25,24 +24,10 @@ public class PomodoroTask implements Task {
         return details.timeEstimateInSeconds;
     }
 
-    @Override
-    public void start() {
-        state.execute(this);
-    }
 
     @Override
     public void setState(TaskState state) {
         this.state = state;
-    }
-
-    @Override
-    public void stop() {
-        state.stop(this);
-    }
-
-    @Override
-    public void reset() {
-        setState(PomodoroTaskState.WORKING);
     }
 
     @Override
