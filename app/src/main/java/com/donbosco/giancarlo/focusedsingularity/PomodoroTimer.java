@@ -10,6 +10,7 @@ public class PomodoroTimer implements Runnable {
     private Task currentTask;
     private Long pomodoroDuration;
     private TimerState state;
+    private long breakDuration;
 
     public PomodoroTimer() {
         this.state = PomodoroTimerState.WORKING;
@@ -53,11 +54,22 @@ public class PomodoroTimer implements Runnable {
     }
 
     public void performCountDown() {
-        for (int i = 0; i < pomodoroDuration / 1000; i++){
+        for (int i = 0; i < pomodoroDuration / 1000; i++) {
             tick();
             sleep(1);
         }
     }
+
+    public void performBreakCountDown() {
+        for (int i = 0; i < breakDuration / 1000; i++) {
+            sleep(1);
+        }
+    }
+
+    protected void tick() {
+        currentTask.addOneSecond();
+    }
+
 
     protected void sleep(int timeOut) {
         try {
@@ -67,9 +79,7 @@ public class PomodoroTimer implements Runnable {
         }
     }
 
-    protected void tick() {
-        currentTask.addOneSecond();
+    public void setBreakDuration(long breakDuration) {
+        this.breakDuration = breakDuration;
     }
-
-
 }

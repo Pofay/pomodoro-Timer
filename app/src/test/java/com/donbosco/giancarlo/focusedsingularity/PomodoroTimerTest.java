@@ -186,4 +186,26 @@ public class PomodoroTimerTest {
         }
     }
 
+    public class BreakCountDownContext {
+        String sequence = "";
+
+        @Test
+        public void ItShouldPerformSleepingTicksOnPerformBreakCountDown() throws Exception {
+            PomodoroTimer timer = new PomodoroTimer() {
+                @Override
+                protected void sleep(int timeOut) {
+                    sequence += "s";
+                }
+            };
+
+            timer.setTask(new TaskDummy());
+            timer.setBreakDuration(5000L);
+
+            timer.performBreakCountDown();
+
+            assertThat(sequence, is("sssss"));
+        }
+
+    }
+
 }
