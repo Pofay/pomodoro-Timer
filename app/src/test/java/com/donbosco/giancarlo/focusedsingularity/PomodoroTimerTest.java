@@ -28,19 +28,6 @@ public class PomodoroTimerTest {
             assertThat(timer.getSelectedTask(), is(notNullValue()));
         }
 
-        @Ignore
-        @Test
-        public void ItShouldHaveTheRightDetailsInTask() {
-            PomodoroTimer timer = new PomodoroTimer();
-
-            int timeEstimateInSeconds = 30000;
-            timer.setTask(new PomodoroTask("Studying", timeEstimateInSeconds));
-
-            Task actualTask = timer.getSelectedTask();
-            //assertThat(actualTask.getName(), is("Studying"));
-            //assertThat(actualTask.getTimeEstimateInSeconds(), is(30000L));
-        }
-
         @Test
         public void ItCanHaveItsPomodoroDurationSet() {
             PomodoroTimer timer = new PomodoroTimer();
