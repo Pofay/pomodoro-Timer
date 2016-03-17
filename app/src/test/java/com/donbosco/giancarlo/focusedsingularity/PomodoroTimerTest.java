@@ -98,6 +98,19 @@ public class PomodoroTimerTest {
             assertThat(stateSpy.stopWasCalled, is(true));
         }
 
+        @Test
+        public void ItShouldBeAbleToCallTick6Times() throws Exception {
+            PomodoroTimer timer = new PomodoroTimer();
+            TaskSpy taskSpy = new TaskSpy();
+
+            timer.setTask(taskSpy);
+            timer.setPomodoroDuration(6000L);
+
+            timer.start();
+
+            assertThat(taskSpy.numberOfTickCalls, is(6));
+        }
+
     }
 
 }
