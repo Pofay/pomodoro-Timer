@@ -1,5 +1,6 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -134,8 +135,6 @@ public class PomodoroTimerTest {
 
             assertThat(taskSpy.numberOfTickCalls, is(7));
         }
-
-
     }
 
     public class AddingTimeSpentToTaskContext {
@@ -161,10 +160,11 @@ public class PomodoroTimerTest {
     public class TickingContext {
 
         String sequence = "";
+        PomodoroTimer timer;
 
-        @Test
-        public void ItShouldTickAndSleepOnCountDown() throws Exception {
-            PomodoroTimer timer = new PomodoroTimer() {
+        @Before
+        public void setUp() {
+            timer = new PomodoroTimer() {
                 @Override
                 protected void tick() {
                     sequence += "T";
@@ -178,27 +178,18 @@ public class PomodoroTimerTest {
             };
 
             timer.setTask(new TaskDummy());
+        }
 
+        @Test
+        public void ItShouldTickAndSleepOnCountDown() throws Exception {
             timer.setPomodoroDuration(4000L);
 
             timer.performCountDown();
             assertThat(sequence, is("TsTsTsTs"));
         }
-    }
-
-    public class BreakCountDownContext {
-        String sequence = "";
 
         @Test
         public void ItShouldPerformSleepingTicksOnPerformBreakCountDown() throws Exception {
-            PomodoroTimer timer = new PomodoroTimer() {
-                @Override
-                protected void sleep(int timeOut) {
-                    sequence += "s";
-                }
-            };
-
-            timer.setTask(new TaskDummy());
             timer.setBreakDuration(5000L);
 
             timer.performBreakCountDown();
@@ -206,6 +197,11 @@ public class PomodoroTimerTest {
             assertThat(sequence, is("sssss"));
         }
 
-    }
 
+        @Test
+        public void testName() throws Exception {
+
+        }
+
+    }
 }
