@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class PomodoroTask implements Task {
 
-    private long pomodoroDuration;
     private long timeSpent;
     private TaskState state;
     private final PomodoroTaskDetails details;
