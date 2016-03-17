@@ -35,6 +35,7 @@ public class PomodoroTimer implements Runnable {
     }
 
     public void stop() {
+        state.stop(this);
     }
 
     public void setPomodoroDuration(long pomodoroDuration) {

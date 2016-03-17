@@ -7,4 +7,5 @@ public interface TimerState {
 
     void start(PomodoroTimer timer);
 
+    void stop(PomodoroTimer timer);
 }

@@ -53,14 +53,14 @@ public class PomodoroTimerTest {
 
     public class TimerExecutionContext {
 
-        boolean executeTimerWasCalled;
+        boolean runWasCalled;
 
         @Test
         public void ItCallsItsRunMethodOnStart() {
             PomodoroTimer timer = new PomodoroTimer() {
                 @Override
                 public void run() {
-                    executeTimerWasCalled = true;
+                    runWasCalled = true;
                 }
             };
 
@@ -69,19 +69,35 @@ public class PomodoroTimerTest {
 
             timer.start();
 
-            assertThat(executeTimerWasCalled, is(true));
+            assertThat(runWasCalled, is(true));
         }
 
         @Test
         public void ItShouldCallStateStartOnTimerStart() {
             PomodoroTimer timer = new PomodoroTimer();
             StateSpy stateSpy = new StateSpy();
+
             timer.setState(stateSpy);
             timer.setTask(new TaskDummy());
+            timer.setPomodoroDuration(6000L);
 
             timer.start();
             assertThat(stateSpy.startWasCalled, is(true));
         }
+
+        @Test
+        public void ItShouldCallStateStopOnTimerStop() throws Exception {
+            PomodoroTimer timer = new PomodoroTimer();
+            StateSpy stateSpy = new StateSpy();
+
+            timer.setState(stateSpy);
+            timer.setTask(new TaskDummy());
+            timer.setPomodoroDuration(7000L);
+
+            timer.stop();
+            assertThat(stateSpy.stopWasCalled, is(true));
+        }
+
     }
 
 }
