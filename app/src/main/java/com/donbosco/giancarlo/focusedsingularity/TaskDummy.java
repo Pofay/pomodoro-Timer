@@ -35,7 +35,7 @@ public class TaskDummy implements Task {
     }
 
     @Override
-    public void performPomodoroCountDown() {
+    public void tick() {
 
     }
 }

@@ -17,5 +17,5 @@ public interface Task {
 
     void reset();
 
-    void performPomodoroCountDown();
+    void tick();
 }

@@ -4,6 +4,8 @@ package com.donbosco.giancarlo.focusedsingularity;
  * Created by GianCarlo on 3/17/2016.
  */
 public class TaskSpy implements Task{
+    public int numberOfTickCalls;
+
     @Override
     public Long getTimeEstimateInSeconds() {
         return null;
@@ -35,7 +37,7 @@ public class TaskSpy implements Task{
     }
 
     @Override
-    public void performPomodoroCountDown() {
-
+    public void tick() {
+        numberOfTickCalls++;
     }
 }
