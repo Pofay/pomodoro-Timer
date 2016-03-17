@@ -19,10 +19,6 @@ public class TaskDummy implements Task {
 
     }
 
-    @Override
-    public void setPomodoroDuration(long pomodoroDuration) {
-
-    }
 
     @Override
     public void stop() {
@@ -35,7 +31,7 @@ public class TaskDummy implements Task {
     }
 
     @Override
-    public void tick() {
+    public void addOneSecond() {
 
     }
 }

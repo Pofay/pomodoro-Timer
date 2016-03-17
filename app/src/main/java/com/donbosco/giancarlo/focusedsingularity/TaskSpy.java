@@ -21,10 +21,6 @@ public class TaskSpy implements Task{
 
     }
 
-    @Override
-    public void setPomodoroDuration(long pomodoroDuration) {
-
-    }
 
     @Override
     public void stop() {
@@ -37,7 +33,7 @@ public class TaskSpy implements Task{
     }
 
     @Override
-    public void tick() {
+    public void addOneSecond() {
         numberOfTickCalls++;
     }
 }

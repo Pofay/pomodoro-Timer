@@ -51,11 +51,14 @@ public class PomodoroTimer implements Runnable {
     }
 
     public void performCountDown() {
-        currentTask.tick();
-        currentTask.tick();
-        currentTask.tick();
-        currentTask.tick();
-        currentTask.tick();
-        currentTask.tick();
+        for (int i = 0; i < 6; i++)
+            tick();
+
     }
+
+    protected void tick() {
+        currentTask.addOneSecond();
+    }
+
+
 }

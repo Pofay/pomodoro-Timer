@@ -24,7 +24,7 @@ public class PomodoroTask implements Task {
     public Long getTimeEstimateInSeconds() {
         return details.timeEstimateInSeconds;
     }
-    
+
     @Override
     public void start() {
         state.execute(this);
@@ -33,11 +33,6 @@ public class PomodoroTask implements Task {
     @Override
     public void setState(TaskState state) {
         this.state = state;
-    }
-
-    @Override
-    public void setPomodoroDuration(long pomodoroDuration) {
-        this.pomodoroDuration = pomodoroDuration;
     }
 
     @Override
@@ -51,17 +46,8 @@ public class PomodoroTask implements Task {
     }
 
     @Override
-    public void tick() {
+    public void addOneSecond() {
         timeSpent += 1000L;
-        sleep(1);
-    }
-
-    protected void sleep(int timeOut) {
-        try {
-            TimeUnit.SECONDS.sleep(timeOut);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 }

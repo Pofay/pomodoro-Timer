@@ -11,11 +11,9 @@ public interface Task {
 
     void setState(TaskState state);
 
-    void setPomodoroDuration(long pomodoroDuration);
-
     void stop();
 
     void reset();
 
-    void tick();
+    void addOneSecond();
 }

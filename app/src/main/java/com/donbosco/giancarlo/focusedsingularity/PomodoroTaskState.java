@@ -7,7 +7,7 @@ public enum PomodoroTaskState implements TaskState {
     WORKING {
         @Override
         public void execute(Task task) {
-            task.tick();
+            task.addOneSecond();
             task.setState(BREAK);
         }
 
