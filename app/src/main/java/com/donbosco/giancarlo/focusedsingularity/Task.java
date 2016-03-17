@@ -7,7 +7,5 @@ public interface Task {
 
     Long getTimeEstimateInSeconds();
 
-    void setState(TaskState state);
-
     void addOneSecond();
 }

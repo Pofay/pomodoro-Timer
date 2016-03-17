@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 public class PomodoroTask implements Task {
 
     private long timeSpent;
-    private TaskState state;
     private final PomodoroTaskDetails details;
 
     public PomodoroTask(String name, long timeEstimateInSeconds) {
@@ -21,12 +20,6 @@ public class PomodoroTask implements Task {
 
     public Long getTimeEstimateInSeconds() {
         return details.timeEstimateInSeconds;
-    }
-
-
-    @Override
-    public void setState(TaskState state) {
-        this.state = state;
     }
 
     @Override

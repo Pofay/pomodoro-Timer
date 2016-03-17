@@ -11,11 +11,6 @@ public class TaskSpy implements Task {
         return null;
     }
 
-    @Override
-    public void setState(TaskState state) {
-
-    }
-
 
     @Override
     public void addOneSecond() {
