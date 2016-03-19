@@ -63,82 +63,68 @@ public class PomodoroTimerTest {
 
             assertThat(runWasCalled, is(true));
         }
+    }
 
-        @Test
-        public void ItShouldCallStateStartOnTimerStart() {
-            PomodoroTimer timer = new PomodoroTimer() {
+    public class TimerToTimerStateInteractionContext {
+
+        private PomodoroTimer timer;
+        private StateSpy stateSpy;
+
+        @Before
+        public void setUp() {
+            timer = new PomodoroTimer() {
                 @Override
                 protected void sleep(int timeOut) {
                 }
 
             };
-            StateSpy stateSpy = new StateSpy();
-
+            stateSpy = new StateSpy();
             timer.setState(stateSpy);
-            timer.setTask(new TaskDummy());
-            timer.setPomodoroDuration(6000L);
+        }
 
+        @Test
+        public void ItShouldCallStateStartOnTimerStart() {
             timer.start();
+
             assertThat(stateSpy.startWasCalled, is(true));
         }
 
         @Test
         public void ItShouldCallStateStopOnTimerStop() throws Exception {
-            PomodoroTimer timer = new PomodoroTimer() {
+            timer.stop();
+
+            assertThat(stateSpy.stopWasCalled, is(true));
+        }
+    }
+
+    public class TimerToTaskInteractionContext {
+
+        private PomodoroTimer timer;
+        private TaskSpy taskSpy;
+
+        @Before
+        public void setUp() {
+            timer = new PomodoroTimer() {
                 @Override
                 protected void sleep(int timeOut) {
 
                 }
             };
-
-            StateSpy stateSpy = new StateSpy();
-
-            timer.setState(stateSpy);
-            timer.setTask(new TaskDummy());
-            timer.setPomodoroDuration(7000L);
-
-            timer.stop();
-            assertThat(stateSpy.stopWasCalled, is(true));
+            taskSpy = new TaskSpy();
+            timer.setTask(taskSpy);
         }
 
         @Test
         public void ItShouldBeAbleToCallTick6Times() throws Exception {
-            PomodoroTimer timer = new PomodoroTimer() {
-                @Override
-                protected void sleep(int timeOut) {
-
-                }
-            };
-            TaskSpy taskSpy = new TaskSpy();
-
-            timer.setTask(taskSpy);
             timer.setPomodoroDuration(6000L);
 
             timer.start();
 
             assertThat(taskSpy.numberOfTickCalls, is(6));
         }
-
-        @Test
-        public void ItShouldBeAbleToCallTick7Times() {
-            PomodoroTimer timer = new PomodoroTimer() {
-                @Override
-                protected void sleep(int timeOut) {
-
-                }
-            };
-            TaskSpy taskSpy = new TaskSpy();
-
-            timer.setTask(taskSpy);
-            timer.setPomodoroDuration(7000L);
-
-            timer.start();
-
-            assertThat(taskSpy.numberOfTickCalls, is(7));
-        }
     }
 
-    public class AddingTimeSpentToTaskContext {
+    public class AddingTimeToTaskContext {
         @Test
         public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
             PomodoroTimer timer = new PomodoroTimer() {
@@ -158,7 +144,7 @@ public class PomodoroTimerTest {
         }
     }
 
-    public class TickingContext {
+    public class TaskTickingContext {
 
         String sequence = "";
         PomodoroTimer timer;
@@ -182,7 +168,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldTickAndSleepOnCountDown() throws Exception {
+        public void ItShouldTickAndSleepOnNormalCountDown() throws Exception {
             timer.setPomodoroDuration(4000L);
 
             timer.performCountDown();
@@ -190,7 +176,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldPerformSleepingTicksOnPerformBreakCountDown() throws Exception {
+        public void ItShouldPerformSleepingTicksOnBreakCountDown() throws Exception {
             timer.setBreakDuration(5000L);
 
             timer.performBreakCountDown();
@@ -200,14 +186,14 @@ public class PomodoroTimerTest {
 
 
         @Test
-        public void PerformNormalTickingAndBreakTicking() throws Exception {
+        public void PerformNormalTickingAndBreakTickingOnStart() throws Exception {
             timer.setBreakDuration(3000L);
 
             timer.setPomodoroDuration(3000L);
 
             timer.start();
 
-            assertThat(sequence,is("TsTsTssss"));
+            assertThat(sequence, is("TsTsTssss"));
         }
 
     }
