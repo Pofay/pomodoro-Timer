@@ -90,6 +90,7 @@ public class PomodoroTimerTest {
 
                 }
             };
+
             StateSpy stateSpy = new StateSpy();
 
             timer.setState(stateSpy);
