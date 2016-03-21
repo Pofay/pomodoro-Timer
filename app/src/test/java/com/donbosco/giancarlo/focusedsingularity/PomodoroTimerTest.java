@@ -61,13 +61,6 @@ public class PomodoroTimerTest {
 
             assertThat(stateSpy.startWasCalled, is(true));
         }
-
-        @Test
-        public void ItShouldCallStateStopOnTimerStop() throws Exception {
-            timer.stop();
-
-            assertThat(stateSpy.stopWasCalled, is(true));
-        }
     }
 
     public class TimerToTaskInteractionContext {

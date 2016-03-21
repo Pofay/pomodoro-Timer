@@ -5,15 +5,10 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public class StateSpy implements TimerState{
     public boolean startWasCalled;
-    public boolean stopWasCalled;
-
+  
     @Override
     public void start(PomodoroTimer timer) {
         startWasCalled = true;
     }
 
-    @Override
-    public void stop(PomodoroTimer timer) {
-        stopWasCalled = true;
-    }
 }

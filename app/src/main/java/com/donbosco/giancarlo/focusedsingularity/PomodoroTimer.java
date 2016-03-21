@@ -33,7 +33,7 @@ public class PomodoroTimer {
     }
 
     public void stop() {
-        state.stop(this);
+
     }
 
     public void setPomodoroDuration(long pomodoroDuration) {
