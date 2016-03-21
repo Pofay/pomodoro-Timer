@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by GianCarlo on 3/6/2016.
  */
-public class PomodoroTimer implements Runnable {
+public class PomodoroTimer {
 
     private Task currentTask;
     private Long pomodoroDuration;
@@ -25,20 +25,11 @@ public class PomodoroTimer implements Runnable {
     }
 
     public void start() {
-        executeTimer();
+        state.start(this);
     }
 
     public void setState(TimerState state) {
         this.state = state;
-    }
-
-    protected void executeTimer() {
-        run();
-    }
-
-    @Override
-    public void run() {
-        state.start(this);
     }
 
     public void stop() {

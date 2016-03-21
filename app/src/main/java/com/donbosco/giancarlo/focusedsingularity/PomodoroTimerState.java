@@ -23,7 +23,6 @@ public enum PomodoroTimerState implements TimerState {
         public void start(PomodoroTimer timer) {
             timer.performCountDown();
             timer.setState(BREAK);
-            timer.start();
         }
 
         @Override

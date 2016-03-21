@@ -1,7 +1,6 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -36,32 +35,6 @@ public class PomodoroTimerTest {
             timer.setPomodoroDuration(20L);
 
             assertThat(timer.getPomodoroDuration(), is(20L));
-        }
-    }
-
-    public class TimerExecutionContext {
-
-        boolean runWasCalled;
-
-        @Test
-        public void ItCallsItsRunMethodOnStart() {
-            PomodoroTimer timer = new PomodoroTimer() {
-                @Override
-                public void run() {
-                    runWasCalled = true;
-                }
-
-                @Override
-                protected void sleep(int timeOut) {
-                }
-            };
-
-            timer.setPomodoroDuration(3000L);
-            timer.setTask(new TaskDummy());
-
-            timer.start();
-
-            assertThat(runWasCalled, is(true));
         }
     }
 
@@ -144,13 +117,13 @@ public class PomodoroTimerTest {
         }
     }
 
-    public class TaskTickingContext {
+    public class InitialTickingContext {
 
         String sequence = "";
         PomodoroTimer timer;
 
         @Before
-        public void setUp() {
+        public void WithATimerSetTo4Seconds() {
             timer = new PomodoroTimer() {
                 @Override
                 protected void tick() {
@@ -165,36 +138,48 @@ public class PomodoroTimerTest {
             };
 
             timer.setTask(new TaskDummy());
-        }
 
-        @Test
-        public void ItShouldTickAndSleepOnNormalCountDown() throws Exception {
             timer.setPomodoroDuration(4000L);
-
-            timer.performCountDown();
-            assertThat(sequence, is("TsTsTsTs"));
         }
 
         @Test
-        public void ItShouldPerformSleepingTicksOnBreakCountDown() throws Exception {
-            timer.setBreakDuration(5000L);
-
-            timer.performBreakCountDown();
-
-            assertThat(sequence, is("sssss"));
-        }
-
-
-        @Test
-        public void PerformNormalTickingAndBreakTickingOnStart() throws Exception {
-            timer.setBreakDuration(3000L);
-
-            timer.setPomodoroDuration(3000L);
-
+        public void ItShouldPerformAWorkingCountDownOnStart() throws Exception {
             timer.start();
 
-            assertThat(sequence, is("TsTsTssss"));
+            assertThat(sequence, is("TsTsTsTs"));
+        }
+    }
+
+    public class BreakTickingContext {
+
+        private PomodoroTimer timer;
+
+        String sequence = "";
+
+        @Before
+        public void WithATimerThatHasAlreadyPerformedItsWorkingCountDown() {
+            timer = new PomodoroTimer() {
+                @Override
+                protected void sleep(int timeOut) {
+                    sequence += "s";
+                }
+
+            };
+
+            timer.setPomodoroDuration(0L);
+
+            timer.setBreakDuration(4000L);
+
+            timer.start();
+        }
+
+        @Test
+        public void ItShouldPerformBreakCountDownOn2ndStart() {
+            timer.start();
+
+            assertThat(sequence, is("ssss"));
         }
 
     }
+
 }
