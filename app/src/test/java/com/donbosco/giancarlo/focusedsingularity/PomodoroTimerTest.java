@@ -214,6 +214,11 @@ public class PomodoroTimerTest {
             assertThat(stateSpy.executeWasCalled, is(true));
         }
 
+        @Test
+        public void ItShould() throws Exception {
+
+        }
+
     }
 
 }
