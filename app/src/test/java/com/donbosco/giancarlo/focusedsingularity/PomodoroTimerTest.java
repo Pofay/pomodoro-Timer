@@ -59,10 +59,10 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldCallStateStartOnTimerStart() {
+        public void ItsExecutionCallsStateExecute() {
             timer.execute();
 
-            assertThat(stateSpy.startWasCalled, is(true));
+            assertThat(stateSpy.executeWasCalled, is(true));
         }
     }
 
@@ -90,7 +90,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldBeAbleToCallTick6Times() throws Exception {
+        public void ItShouldBeAbleToCallTick6TimesAfterExecute() throws Exception {
             timer.execute();
 
             int expectedTickCalls = 6;
@@ -154,7 +154,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldPerformAWorkingCountDownOnStart() throws Exception {
+        public void ItShouldPerformAWorkingCountDownOnExecute() throws Exception {
             timer.execute();
 
             assertThat(sequence, is("TsTsTsTs"));
@@ -185,7 +185,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldPerformBreakCountDownOn2ndStart() {
+        public void ItShouldPerformBreakCountDownOn2ndSecondExecute() {
             timer.execute();
 
             assertThat(sequence, is("ssss"));
@@ -196,8 +196,11 @@ public class PomodoroTimerTest {
     public class TimerExecutorContext {
 
         @Test
-        public void testName() throws Exception {
+        public void ItShouldExecuteStateOnTimerStart() throws Exception {
 
+
+
+            //assertThat(stateSpy.executeWasCalled, is(true));
         }
 
     }
