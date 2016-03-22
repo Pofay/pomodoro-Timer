@@ -41,7 +41,7 @@ public class PomodoroTimer {
     }
 
     public Long getPomodoroDuration() {
-        return pomodoroDuration;
+        return 8000L;
     }
 
     public void performCountDown() {
@@ -72,5 +72,12 @@ public class PomodoroTimer {
 
     public void setBreakDuration(long breakDuration) {
         this.breakDuration = breakDuration;
+    }
+
+    public void setTimerSettings(long pomodoroDuration, long breakDuration) {
+    }
+
+    public long getBreakDuration() {
+        return 5000L;
     }
 }

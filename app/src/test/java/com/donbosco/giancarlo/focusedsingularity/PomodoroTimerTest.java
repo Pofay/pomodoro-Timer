@@ -29,12 +29,13 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItCanHaveItsPomodoroDurationSet() {
+        public void ItCanHavePomodoroDurationAndBreakDurationSet() {
             PomodoroTimer timer = new PomodoroTimer();
 
-            timer.setPomodoroDuration(20L);
+            timer.setTimerSettings(8000L, 5000L);
 
-            assertThat(timer.getPomodoroDuration(), is(20L));
+            assertThat(timer.getPomodoroDuration(), is(8000L));
+            assertThat(timer.getBreakDuration(),is(5000L));
         }
     }
 
