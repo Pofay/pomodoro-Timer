@@ -13,12 +13,13 @@ public class PomodoroTimer {
     private TimerExecutor executor;
 
     public PomodoroTimer() {
-        this(new TimerExecutor());
+        this(new TimerExecutorImpl());
     }
 
     public PomodoroTimer(TimerExecutor executor) {
         this.state = PomodoroTimerState.WORKING;
         this.executor = executor;
+        this.settings = new TimerSettings(25L, 5L);
     }
 
     public void setTask(Task task) {
@@ -43,6 +44,7 @@ public class PomodoroTimer {
     }
 
     public void cancel() {
+        executor.cancel();
     }
 
 

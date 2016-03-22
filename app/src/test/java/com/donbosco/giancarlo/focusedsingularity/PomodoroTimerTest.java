@@ -1,7 +1,5 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
-import android.net.NetworkInfo;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -200,7 +198,7 @@ public class PomodoroTimerTest {
         @Test
         public void ItShouldExecuteStateOnTimerStart() throws Exception {
             StateSpy stateSpy = new StateSpy();
-            TimerExecutor executor = new TimerExecutor();
+            TimerExecutorImpl executor = new TimerExecutorImpl();
             PomodoroTimer timer = new PomodoroTimer(executor) {
                 @Override
                 protected void sleep(int timeOut) {
@@ -215,7 +213,21 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShould() throws Exception {
+        public void ItShouldCancelsExecutorWhenFinishing2Executions() throws Exception {
+            TimerExecutorCancelSpy executorCancelSpy = new TimerExecutorCancelSpy();
+            PomodoroTimer timer = new PomodoroTimer(executorCancelSpy) {
+                @Override
+                protected void sleep(int timeOut) {
+                }
+            };
+
+            timer.setTask(new TaskDummy());
+
+            timer.start();
+            timer.start();
+
+            assertThat(executorCancelSpy.cancelWasCalled, is(true));
+
 
         }
 
