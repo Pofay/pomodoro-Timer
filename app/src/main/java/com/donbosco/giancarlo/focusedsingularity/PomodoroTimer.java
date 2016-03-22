@@ -8,9 +8,8 @@ import java.util.concurrent.TimeUnit;
 public class PomodoroTimer {
 
     private Task currentTask;
-    private Long pomodoroDuration;
     private TimerState state;
-    private long breakDuration;
+    private TimerSettings settings;
 
     public PomodoroTimer() {
         this.state = PomodoroTimerState.WORKING;
@@ -36,23 +35,19 @@ public class PomodoroTimer {
 
     }
 
-    public void setPomodoroDuration(long pomodoroDuration) {
-        this.pomodoroDuration = pomodoroDuration;
-    }
-
     public Long getPomodoroDuration() {
-        return 8000L;
+        return settings.pomodoroDuration;
     }
 
     public void performCountDown() {
-        for (int i = 0; i < pomodoroDuration / 1000; i++) {
+        for (int i = 0; i < settings.pomodoroDuration / 1000; i++) {
             tick();
             sleep(1);
         }
     }
 
     public void performBreakCountDown() {
-        for (int i = 0; i < breakDuration / 1000; i++) {
+        for (int i = 0; i < settings.breakDuration / 1000; i++) {
             sleep(1);
         }
     }
@@ -70,14 +65,11 @@ public class PomodoroTimer {
         }
     }
 
-    public void setBreakDuration(long breakDuration) {
-        this.breakDuration = breakDuration;
-    }
-
     public void setTimerSettings(long pomodoroDuration, long breakDuration) {
+        this.settings = new TimerSettings(pomodoroDuration, breakDuration);
     }
 
     public long getBreakDuration() {
-        return 5000L;
+        return settings.breakDuration;
     }
 }
