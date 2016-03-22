@@ -23,15 +23,15 @@ public class PomodoroTimer {
         return currentTask;
     }
 
-    public void start() {
-        state.start(this);
+    public void execute() {
+        state.execute(this);
     }
 
     public void setState(TimerState state) {
         this.state = state;
     }
 
-    public void stop() {
+    public void cancel() {
     }
 
     public Long getPomodoroDuration() {

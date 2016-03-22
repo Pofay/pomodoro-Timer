@@ -5,6 +5,6 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public interface TimerState {
 
-    void start(PomodoroTimer timer);
+    void execute(PomodoroTimer timer);
 
 }
