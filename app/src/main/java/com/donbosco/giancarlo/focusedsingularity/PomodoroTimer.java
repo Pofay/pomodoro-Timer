@@ -32,7 +32,6 @@ public class PomodoroTimer {
     }
 
     public void stop() {
-
     }
 
     public Long getPomodoroDuration() {
