@@ -13,7 +13,7 @@ public class PomodoroTimer {
     private TimerExecutor executor;
 
     public PomodoroTimer() {
-        this(new TimerExecutorImpl());
+        this(new TimerExecutorDummy());
     }
 
     public PomodoroTimer(TimerExecutor executor) {
