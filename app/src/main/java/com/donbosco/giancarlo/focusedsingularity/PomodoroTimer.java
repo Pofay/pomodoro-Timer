@@ -10,9 +10,15 @@ public class PomodoroTimer {
     private Task currentTask;
     private TimerState state;
     private TimerSettings settings;
+    private TimerExecutor executor;
 
     public PomodoroTimer() {
+        this(new TimerExecutor());
+    }
+
+    public PomodoroTimer(TimerExecutor executor) {
         this.state = PomodoroTimerState.WORKING;
+        this.executor = executor;
     }
 
     public void setTask(Task task) {
@@ -23,20 +29,22 @@ public class PomodoroTimer {
         return currentTask;
     }
 
-    public void execute() {
-        state.execute(this);
-    }
 
     public void setState(TimerState state) {
         this.state = state;
     }
 
+    public void start() {
+        executor.start(this);
+    }
+
+    public void execute() {
+        state.execute(this);
+    }
+
     public void cancel() {
     }
 
-    public Long getPomodoroDuration() {
-        return settings.pomodoroDuration;
-    }
 
     public void performCountDown() {
         for (int i = 0; i < settings.pomodoroDuration / 1000; i++) {
@@ -71,4 +79,10 @@ public class PomodoroTimer {
     public long getBreakDuration() {
         return settings.breakDuration;
     }
+
+    public Long getPomodoroDuration() {
+        return settings.pomodoroDuration;
+    }
+
+
 }
