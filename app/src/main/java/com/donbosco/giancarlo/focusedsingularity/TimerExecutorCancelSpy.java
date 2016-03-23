@@ -7,7 +7,7 @@ public class TimerExecutorCancelSpy implements TimerExecutor{
     public boolean cancelWasCalled;
 
     @Override
-    public void start(FakePomodoroTimer timer) {
+    public void start(PomodoroTimer timer) {
         timer.execute();
     }
 

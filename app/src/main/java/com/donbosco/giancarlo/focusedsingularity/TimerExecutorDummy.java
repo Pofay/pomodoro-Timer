@@ -6,7 +6,7 @@ package com.donbosco.giancarlo.focusedsingularity;
 public class TimerExecutorDummy implements TimerExecutor {
 
     @Override
-    public void start(FakePomodoroTimer timer) {
+    public void start(PomodoroTimer timer) {
 
     }
 
