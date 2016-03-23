@@ -7,7 +7,7 @@ public class StateSpy implements TimerState{
     public boolean executeWasCalled;
 
     @Override
-    public void execute(PomodoroTimer timer) {
+    public void execute(FakePomodoroTimer timer) {
         executeWasCalled = true;
     }
 

@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.concurrent.TimeUnit;
+
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -20,7 +22,7 @@ public class PomodoroTimerTest {
     public class BasicSetUpContext {
         @Test
         public void ItCanSetItsTaskToWorkOn() {
-            PomodoroTimer timer = new PomodoroTimer();
+            FakePomodoroTimer timer = new FakePomodoroTimer();
 
             int timeEstimateInSeconds = 25000;
             timer.setTask(new PomodoroTask("Programming", timeEstimateInSeconds));
@@ -30,7 +32,7 @@ public class PomodoroTimerTest {
 
         @Test
         public void ItCanHavePomodoroDurationAndBreakDurationSet() {
-            PomodoroTimer timer = new PomodoroTimer();
+            FakePomodoroTimer timer = new FakePomodoroTimer();
 
             long pomodoroDuration = 8000L;
             long breakDuration = 5000L;
@@ -43,12 +45,12 @@ public class PomodoroTimerTest {
 
     public class TimerToTimerStateInteractionContext {
 
-        private PomodoroTimer timer;
+        private FakePomodoroTimer timer;
         private StateSpy stateSpy;
 
         @Before
         public void setUp() {
-            timer = new PomodoroTimer() {
+            timer = new FakePomodoroTimer() {
                 @Override
                 protected void sleep(int timeOut) {
                 }
@@ -68,12 +70,12 @@ public class PomodoroTimerTest {
 
     public class TimerToTaskInteractionContext {
 
-        private PomodoroTimer timer;
+        private FakePomodoroTimer timer;
         private TaskSpy taskSpy;
 
         @Before
         public void setUp() {
-            timer = new PomodoroTimer() {
+            timer = new FakePomodoroTimer() {
                 @Override
                 protected void sleep(int timeOut) {
 
@@ -101,7 +103,7 @@ public class PomodoroTimerTest {
     public class AddingTimeToTaskContext {
         @Test
         public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
-            PomodoroTimer timer = new PomodoroTimer() {
+            FakePomodoroTimer timer = new FakePomodoroTimer() {
                 @Override
                 protected void sleep(int timeOut) {
 
@@ -129,11 +131,11 @@ public class PomodoroTimerTest {
     public class InitialTickingContext {
 
         String sequence = "";
-        PomodoroTimer timer;
+        FakePomodoroTimer timer;
 
         @Before
         public void WithATimerSetTo4Seconds() {
-            timer = new PomodoroTimer() {
+            timer = new FakePomodoroTimer() {
                 @Override
                 protected void tick() {
                     sequence += "T";
@@ -163,13 +165,13 @@ public class PomodoroTimerTest {
 
     public class BreakTickingContext {
 
-        private PomodoroTimer timer;
+        private FakePomodoroTimer timer;
 
         String sequence = "";
 
         @Before
         public void WithATimerThatHasAlreadyPerformedItsWorkingCountDown() {
-            timer = new PomodoroTimer() {
+            timer = new FakePomodoroTimer() {
                 @Override
                 protected void sleep(int timeOut) {
                     sequence += "s";
@@ -199,7 +201,7 @@ public class PomodoroTimerTest {
         public void ItShouldExecuteStateOnTimerStart() throws Exception {
             StateSpy stateSpy = new StateSpy();
             TimerExecutorCancelSpy cancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new PomodoroTimer(cancelSpy) {
+            FakePomodoroTimer timer = new FakePomodoroTimer(cancelSpy) {
                 @Override
                 protected void sleep(int timeOut) {
                 }
@@ -215,7 +217,7 @@ public class PomodoroTimerTest {
         @Test
         public void ItShouldCancelExecutorWhenFinishing2Executions() throws Exception {
             TimerExecutorCancelSpy executorCancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new PomodoroTimer(executorCancelSpy) {
+            FakePomodoroTimer timer = new FakePomodoroTimer(executorCancelSpy) {
                 @Override
                 protected void sleep(int timeOut) {
                 }
@@ -228,7 +230,23 @@ public class PomodoroTimerTest {
 
             assertThat(executorCancelSpy.cancelWasCalled, is(true));
         }
+    }
 
+    public class TimeFormatContext {
+
+        @Test
+        public void MinuteFormat() {
+            long millis = TimeUnit.MINUTES.toMillis(25L);
+
+            long time = millis - TimeUnit.SECONDS.toMillis(1L);
+            long minutes = TimeUnit.MILLISECONDS.toMinutes(time);
+
+            String timeFormat = String.format("%02d:%02d",
+                    TimeUnit.MILLISECONDS.toMinutes(time),
+                    TimeUnit.MILLISECONDS.toSeconds(time) - TimeUnit.MINUTES.toSeconds(minutes));
+
+            assertThat(timeFormat, is("24:59"));
+        }
     }
 
 }
