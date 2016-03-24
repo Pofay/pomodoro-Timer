@@ -11,6 +11,7 @@ public class PomodoroTimer {
     private TimerState state;
     private TimerSettings settings;
     private TimerExecutor executor;
+    private ObserverSpy spy;
 
     public PomodoroTimer() {
         this(new TimerExecutorDummy());
@@ -49,6 +50,7 @@ public class PomodoroTimer {
 
 
     public void performCountDown() {
+        notifyObserver();
         for (int i = 0; i < settings.pomodoroDuration / 1000; i++) {
             tick();
             sleep(1);
@@ -87,6 +89,11 @@ public class PomodoroTimer {
     }
 
     public void registerObserver(ObserverSpy observerSpy) {
+        this.spy = observerSpy;
+    }
 
+    public void notifyObserver() {
+        if (spy != null)
+            spy.update();
     }
 }

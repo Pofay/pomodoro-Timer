@@ -261,8 +261,9 @@ public class PomodoroTimerTest {
             timer.registerObserver(observerSpy);
 
 
+            timer.start();
+            
             assertThat(observerSpy.updateWasCalled, is(true));
-
         }
     }
 
