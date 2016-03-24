@@ -9,9 +9,9 @@ public class ObserverSpy implements Observer {
     public String sequence = "";
 
     @Override
-    public void update(String format) {
+    public void update(String timeChanged) {
         numberOfUpdateCalls++;
         updateWasCalled = true;
-        sequence += format;
+        sequence += timeChanged;
     }
 }
