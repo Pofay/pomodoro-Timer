@@ -4,8 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.concurrent.TimeUnit;
-
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -114,11 +112,48 @@ public class PomodoroTimerTest {
         }
     }
 
+    public class TimerExecutorContext {
+
+        @Test
+        public void ItShouldExecuteStateOnTimerStart() throws Exception {
+            StateSpy stateSpy = new StateSpy();
+            TimerExecutorCancelSpy cancelSpy = new TimerExecutorCancelSpy();
+            PomodoroTimer timer = new SleeplessPomodoroTimer(cancelSpy);
+
+            timer.setState(stateSpy);
+
+            timer.start();
+
+            assertThat(stateSpy.executeWasCalled, is(true));
+        }
+
+        @Test
+        public void ItShouldCancelExecutorWhenFinishing2Executions() throws Exception {
+            TimerExecutorCancelSpy executorCancelSpy = new TimerExecutorCancelSpy();
+            PomodoroTimer timer = new SleeplessPomodoroTimer(executorCancelSpy);
+
+            timer.setTask(new TaskDummy());
+
+            timer.start();
+            timer.start();
+
+            assertThat(executorCancelSpy.cancelWasCalled, is(true));
+        }
+    }
+
     private class SleeplessPomodoroTimer extends PomodoroTimer {
+
+        public SleeplessPomodoroTimer() {
+            super();
+        }
+
+        public SleeplessPomodoroTimer(TimerExecutor executor) {
+            super(executor);
+        }
+
         @Override
         protected void sleep(int timeOut) {
         }
-
     }
 
     public class InitialTickingContext {
@@ -188,44 +223,7 @@ public class PomodoroTimerTest {
 
     }
 
-    public class TimerExecutorContext {
 
-        @Test
-        public void ItShouldExecuteStateOnTimerStart() throws Exception {
-            StateSpy stateSpy = new StateSpy();
-            TimerExecutorCancelSpy cancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new FastPomodoroTimer(cancelSpy);
-
-            timer.setState(stateSpy);
-
-            timer.start();
-
-            assertThat(stateSpy.executeWasCalled, is(true));
-        }
-
-        @Test
-        public void ItShouldCancelExecutorWhenFinishing2Executions() throws Exception {
-            TimerExecutorCancelSpy executorCancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new FastPomodoroTimer(executorCancelSpy);
-
-            timer.setTask(new TaskDummy());
-
-            timer.start();
-            timer.start();
-
-            assertThat(executorCancelSpy.cancelWasCalled, is(true));
-        }
-
-        private class FastPomodoroTimer extends PomodoroTimer {
-            public FastPomodoroTimer(TimerExecutor executor) {
-                super(executor);
-            }
-
-            @Override
-            protected void sleep(int timeOut) {
-            }
-        }
-    }
 
     public class ObserverContext {
 
