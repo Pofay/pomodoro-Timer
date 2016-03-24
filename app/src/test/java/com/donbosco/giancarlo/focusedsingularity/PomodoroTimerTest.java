@@ -262,7 +262,7 @@ public class PomodoroTimerTest {
 
 
             timer.start();
-            
+
             assertThat(observerSpy.updateWasCalled, is(true));
         }
     }
