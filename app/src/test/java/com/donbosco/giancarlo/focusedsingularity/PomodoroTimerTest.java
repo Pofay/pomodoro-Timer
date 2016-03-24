@@ -184,7 +184,10 @@ public class PomodoroTimerTest {
             };
 
             PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
-            timer.setTimerSettings(8L, 3L);
+            long pomodoroDurationInMinutes = 8L;
+            long breakDurationInMinutes = 3L;
+            
+            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
             timer.setTask(new TaskDummy());
 
             ObserverSpy observerSpy = new ObserverSpy();

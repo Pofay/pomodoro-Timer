@@ -40,19 +40,19 @@
       <file leaf-file-name="PomodoroTimerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.848537">
-              <caret line="279" column="5" selection-start-line="279" selection-start-column="5" selection-end-line="279" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.50774527">
+              <caret line="188" column="12" selection-start-line="188" selection-start-column="12" selection-end-line="188" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4397#4398#0" expanded="true" />
                 <element signature="e#4452#4453#0" expanded="true" />
                 <element signature="e#5112#5113#0" expanded="true" />
                 <element signature="e#5167#5168#0" expanded="true" />
-                <element signature="e#5754#5755#0" expanded="true" />
-                <element signature="e#5785#5786#0" expanded="true" />
-                <element signature="e#5850#5851#0" expanded="true" />
-                <element signature="e#5889#5890#0" expanded="true" />
-                <element signature="class#6161:6448" expanded="false" />
+                <element signature="e#5905#5906#0" expanded="true" />
+                <element signature="e#5936#5937#0" expanded="true" />
+                <element signature="e#6001#6002#0" expanded="true" />
+                <element signature="e#6040#6041#0" expanded="true" />
+                <element signature="class#6312:6599" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2376,11 +2376,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2410,11 +2410,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2429,11 +2429,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2448,11 +2448,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2467,11 +2467,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2486,11 +2486,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2505,11 +2505,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2524,11 +2524,11 @@
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2859,19 +2859,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.848537">
-          <caret line="279" column="5" selection-start-line="279" selection-start-column="5" selection-end-line="279" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.50774527">
+          <caret line="188" column="12" selection-start-line="188" selection-start-column="12" selection-end-line="188" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4397#4398#0" expanded="true" />
             <element signature="e#4452#4453#0" expanded="true" />
             <element signature="e#5112#5113#0" expanded="true" />
             <element signature="e#5167#5168#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-            <element signature="e#5850#5851#0" expanded="true" />
-            <element signature="e#5889#5890#0" expanded="true" />
-            <element signature="class#6161:6448" expanded="false" />
+            <element signature="e#5905#5906#0" expanded="true" />
+            <element signature="e#5936#5937#0" expanded="true" />
+            <element signature="e#6001#6002#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="class#6312:6599" expanded="false" />
           </folding>
         </state>
       </provider>
