@@ -99,10 +99,10 @@ public class PomodoroTimerTest {
 
             timer.setTask(task);
 
-            long pomodoroDuration = 4L;
-            long breakDuration = 0L;
+            long pomodoroDurationInMinutes = 4L;
+            long breakDurationInMinutes = 0L;
 
-            timer.setTimerSettings(pomodoroDuration, breakDuration);
+            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
 
             timer.execute();
 
