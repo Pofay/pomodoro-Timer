@@ -51,8 +51,8 @@ public class PomodoroTimer {
 
     public void performCountDown() {
         for (int i = 0; i < settings.pomodoroDuration; i++) {
-            notifyObserver();
             tick();
+            notifyObserver("");
             sleep(1);
         }
     }
@@ -92,8 +92,8 @@ public class PomodoroTimer {
         this.observer = observer;
     }
 
-    public void notifyObserver() {
+    public void notifyObserver(String format) {
         if (observer != null)
-            observer.update();
+            observer.update(format);
     }
 }

@@ -8,6 +8,7 @@ import de.bechte.junit.runners.context.HierarchicalContextRunner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -75,7 +76,7 @@ public class PomodoroTimerTest {
             timer.setTask(taskSpy);
 
             long pomodoroDurationInMinutes = 6L;
-            long breakDurationInMinutes= 3L;
+            long breakDurationInMinutes = 3L;
 
             timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
         }
@@ -186,7 +187,7 @@ public class PomodoroTimerTest {
             PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
             long pomodoroDurationInMinutes = 8L;
             long breakDurationInMinutes = 3L;
-            
+
             timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
             timer.setTask(new TaskDummy());
 
@@ -197,6 +198,41 @@ public class PomodoroTimerTest {
             timer.start();
 
             assertThat(observerSpy.numberOfUpdateCalls, is(8));
+        }
+
+        @Test
+        public void ItShould() {
+            TimerExecutor executor = new TimerExecutor() {
+                @Override
+                public void start(PomodoroTimer timer) {
+                    timer.execute();
+                }
+
+                @Override
+                public void cancel() {
+
+                }
+            };
+
+            PomodoroTimer timer = new PomodoroTimer(executor) {
+                @Override
+                protected void tick() {
+                    notifyObserver("T");
+                }
+
+                @Override
+                protected void sleep(int timeOut) {
+                    notifyObserver("s");
+                }
+            };
+            timer.setTimerSettings(4L, 4L);
+            timer.setTask(new TaskDummy());
+            ObserverSpy observerSpy = new ObserverSpy();
+            timer.registerObserver(observerSpy);
+
+            timer.start();
+
+            assertThat(observerSpy.sequence, is("TsTsTsTs"));
         }
     }
 

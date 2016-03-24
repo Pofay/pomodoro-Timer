@@ -6,10 +6,12 @@ package com.donbosco.giancarlo.focusedsingularity;
 public class ObserverSpy implements Observer {
     public boolean updateWasCalled;
     public int numberOfUpdateCalls = 0;
+    public String sequence = "";
 
     @Override
-    public void update() {
+    public void update(String format) {
         numberOfUpdateCalls++;
         updateWasCalled = true;
+        sequence += format;
     }
 }
