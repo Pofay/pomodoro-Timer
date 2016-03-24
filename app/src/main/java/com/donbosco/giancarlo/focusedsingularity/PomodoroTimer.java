@@ -50,7 +50,7 @@ public class PomodoroTimer {
 
 
     public void performCountDown() {
-        for (int i = 0; i < settings.pomodoroDuration / 1000; i++) {
+        for (int i = 0; i < settings.pomodoroDuration; i++) {
             notifyObserver();
             tick();
             sleep(1);
@@ -58,7 +58,7 @@ public class PomodoroTimer {
     }
 
     public void performBreakCountDown() {
-        for (int i = 0; i < settings.breakDuration / 1000; i++) {
+        for (int i = 0; i < settings.breakDuration; i++) {
             sleep(1);
         }
     }

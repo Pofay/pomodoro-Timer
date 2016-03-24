@@ -22,8 +22,8 @@ public class PomodoroTimerTest {
         public void ItCanSetItsTaskToWorkOn() {
             PomodoroTimer timer = new PomodoroTimer();
 
-            int timeEstimateInSeconds = 25000;
-            timer.setTask(new PomodoroTask("Programming", timeEstimateInSeconds));
+            long timeEstimateInMinutes = 25L;
+            timer.setTask(new PomodoroTask("Programming", timeEstimateInMinutes));
 
             assertThat(timer.getSelectedTask(), is(notNullValue()));
         }
@@ -32,12 +32,12 @@ public class PomodoroTimerTest {
         public void ItCanHavePomodoroDurationAndBreakDurationSet() {
             PomodoroTimer timer = new PomodoroTimer();
 
-            long pomodoroDuration = 8000L;
-            long breakDuration = 5000L;
-            timer.setTimerSettings(pomodoroDuration, breakDuration);
+            long pomodoroDurationInMinutes = 8L;
+            long breakDurationInMinutes = 5L;
+            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
 
-            assertThat(timer.getPomodoroDuration(), is(8000L));
-            assertThat(timer.getBreakDuration(), is(5000L));
+            assertThat(timer.getPomodoroDuration(), is(8L));
+            assertThat(timer.getBreakDuration(), is(5L));
         }
     }
 
@@ -74,10 +74,10 @@ public class PomodoroTimerTest {
 
             timer.setTask(taskSpy);
 
-            long pomodoroDuration = 6000L;
-            long breakDuration = 3000L;
+            long pomodoroDurationInMinutes = 6L;
+            long breakDurationInMinutes= 3L;
 
-            timer.setTimerSettings(pomodoroDuration, breakDuration);
+            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
         }
 
         @Test
@@ -93,20 +93,20 @@ public class PomodoroTimerTest {
         @Test
         public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
             PomodoroTimer timer = new SleeplessPomodoroTimer();
-            long timeEstimateInSeconds = 8000L;
+            long timeEstimateInMinutes = 8L;
 
-            Task task = new PomodoroTask("Programming", timeEstimateInSeconds);
+            Task task = new PomodoroTask("Programming", timeEstimateInMinutes);
 
             timer.setTask(task);
 
-            long pomodoroDuration = 4000L;
+            long pomodoroDuration = 4L;
             long breakDuration = 0L;
 
             timer.setTimerSettings(pomodoroDuration, breakDuration);
 
             timer.execute();
 
-            long expectedTimeSpent = 4000L;
+            long expectedTimeSpent = 4L;
 
             assertThat(task.getTimeSpent(), is(expectedTimeSpent));
         }
@@ -164,9 +164,6 @@ public class PomodoroTimerTest {
             ObserverSpy observerSpy = new ObserverSpy();
             timer.registerObserver(observerSpy);
 
-            timer.setTimerSettings(3000L, 3000L);
-
-
             timer.start();
 
             assertThat(observerSpy.updateWasCalled, is(true));
@@ -187,7 +184,7 @@ public class PomodoroTimerTest {
             };
 
             PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
-            timer.setTimerSettings(8000L, 3000L);
+            timer.setTimerSettings(8L, 3L);
             timer.setTask(new TaskDummy());
 
             ObserverSpy observerSpy = new ObserverSpy();
@@ -214,7 +211,7 @@ public class PomodoroTimerTest {
             };
 
             PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
-            timer.setTimerSettings(6000L, 3000L);
+            timer.setTimerSettings(6L, 3L);
             timer.setTask(new TaskDummy());
 
             ObserverSpy observerSpy = new ObserverSpy();
@@ -264,9 +261,9 @@ public class PomodoroTimerTest {
 
             timer.setTask(new TaskDummy());
 
-            long pomodoroDuration = 4000L;
-            long breakDuration = 0L;
-            timer.setTimerSettings(pomodoroDuration, breakDuration);
+            long pomodoroDurationInMinutes = 4L;
+            long breakDurationInMinutes = 0L;
+            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
         }
 
         @Test
@@ -293,9 +290,9 @@ public class PomodoroTimerTest {
 
             };
 
-            long breakDuration = 4000L;
-            long pomodoroDuration = 0L;
-            timer.setTimerSettings(pomodoroDuration, breakDuration);
+            long breakDurationInMinutes = 4L;
+            long pomodoroDurationInMinutes = 0L;
+            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
 
             timer.execute();
         }
