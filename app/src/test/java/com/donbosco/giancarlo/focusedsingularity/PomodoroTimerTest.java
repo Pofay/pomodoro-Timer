@@ -232,20 +232,37 @@ public class PomodoroTimerTest {
         }
     }
 
-    public class TimeFormatContext {
+    public class ObserverContext {
 
         @Test
-        public void MinuteFormat() {
-            long millis = TimeUnit.MINUTES.toMillis(25L);
+        public void ItShouldUpdateObserverOnStart() {
+            TimerExecutor executor = new TimerExecutor() {
+                @Override
+                public void start(PomodoroTimer timer) {
+                    timer.execute();
+                }
 
-            long time = millis - TimeUnit.SECONDS.toMillis(1L);
-            long minutes = TimeUnit.MILLISECONDS.toMinutes(time);
+                @Override
+                public void cancel() {
 
-            String timeFormat = String.format("%02d:%02d",
-                    TimeUnit.MILLISECONDS.toMinutes(time),
-                    TimeUnit.MILLISECONDS.toSeconds(time) - TimeUnit.MINUTES.toSeconds(minutes));
+                }
+            };
 
-            assertThat(timeFormat, is("24:59"));
+            PomodoroTimer timer = new PomodoroTimer(executor) {
+                @Override
+                protected void sleep(int timeOut) {
+
+                }
+            };
+
+            timer.setTask(new TaskDummy());
+
+            ObserverSpy observerSpy = new ObserverSpy();
+            timer.registerObserver(observerSpy);
+
+
+            assertThat(observerSpy.updateWasCalled, is(true));
+
         }
     }
 

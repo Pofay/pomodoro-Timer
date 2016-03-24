@@ -85,4 +85,8 @@ public class PomodoroTimer {
     public Long getPomodoroDuration() {
         return settings.pomodoroDuration;
     }
+
+    public void registerObserver(ObserverSpy observerSpy) {
+
+    }
 }
