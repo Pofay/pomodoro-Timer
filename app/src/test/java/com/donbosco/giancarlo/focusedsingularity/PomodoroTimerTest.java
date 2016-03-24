@@ -164,6 +164,8 @@ public class PomodoroTimerTest {
             ObserverSpy observerSpy = new ObserverSpy();
             timer.registerObserver(observerSpy);
 
+            timer.setTimerSettings(3000L, 3000L);
+
 
             timer.start();
 
@@ -185,14 +187,43 @@ public class PomodoroTimerTest {
             };
 
             PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
-            timer.setTimerSettings(8L, 3L);
+            timer.setTimerSettings(8000L, 3000L);
             timer.setTask(new TaskDummy());
 
             ObserverSpy observerSpy = new ObserverSpy();
 
             timer.registerObserver(observerSpy);
 
+            timer.start();
+
             assertThat(observerSpy.numberOfUpdateCalls, is(8));
+        }
+
+        @Test
+        public void ItShouldCallUpdateTheSameTimesAsThePomodoroDuration2nd() {
+            TimerExecutor executor = new TimerExecutor() {
+                @Override
+                public void start(PomodoroTimer timer) {
+                    timer.execute();
+                }
+
+                @Override
+                public void cancel() {
+
+                }
+            };
+
+            PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
+            timer.setTimerSettings(6000L, 3000L);
+            timer.setTask(new TaskDummy());
+
+            ObserverSpy observerSpy = new ObserverSpy();
+
+            timer.registerObserver(observerSpy);
+
+            timer.start();
+
+            assertThat(observerSpy.numberOfUpdateCalls, is(6));
         }
     }
 

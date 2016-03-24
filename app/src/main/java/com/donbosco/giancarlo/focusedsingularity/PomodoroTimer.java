@@ -50,8 +50,8 @@ public class PomodoroTimer {
 
 
     public void performCountDown() {
-        notifyObserver();
         for (int i = 0; i < settings.pomodoroDuration / 1000; i++) {
+            notifyObserver();
             tick();
             sleep(1);
         }

@@ -5,10 +5,11 @@ package com.donbosco.giancarlo.focusedsingularity;
  */
 public class ObserverSpy implements Observer {
     public boolean updateWasCalled;
-    public int numberOfUpdateCalls = 8;
+    public int numberOfUpdateCalls = 0;
 
     @Override
     public void update() {
+        numberOfUpdateCalls++;
         updateWasCalled = true;
     }
 }
