@@ -195,33 +195,6 @@ public class PomodoroTimerTest {
 
             assertThat(observerSpy.numberOfUpdateCalls, is(8));
         }
-
-        @Test
-        public void ItShouldCallUpdateTheSameTimesAsThePomodoroDuration2nd() {
-            TimerExecutor executor = new TimerExecutor() {
-                @Override
-                public void start(PomodoroTimer timer) {
-                    timer.execute();
-                }
-
-                @Override
-                public void cancel() {
-
-                }
-            };
-
-            PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
-            timer.setTimerSettings(6L, 3L);
-            timer.setTask(new TaskDummy());
-
-            ObserverSpy observerSpy = new ObserverSpy();
-
-            timer.registerObserver(observerSpy);
-
-            timer.start();
-
-            assertThat(observerSpy.numberOfUpdateCalls, is(6));
-        }
     }
 
     private class SleeplessPomodoroTimer extends PomodoroTimer {
