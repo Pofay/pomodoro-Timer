@@ -141,6 +141,36 @@ public class PomodoroTimerTest {
         }
     }
 
+    public class ObserverContext {
+
+        @Test
+        public void ItShouldUpdateObserverOnStart() {
+            TimerExecutor executor = new TimerExecutor() {
+                @Override
+                public void start(PomodoroTimer timer) {
+                    timer.execute();
+                }
+
+                @Override
+                public void cancel() {
+
+                }
+            };
+
+            PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
+
+            timer.setTask(new TaskDummy());
+
+            ObserverSpy observerSpy = new ObserverSpy();
+            timer.registerObserver(observerSpy);
+
+
+            timer.start();
+
+            assertThat(observerSpy.updateWasCalled, is(true));
+        }
+    }
+
     private class SleeplessPomodoroTimer extends PomodoroTimer {
 
         public SleeplessPomodoroTimer() {
@@ -223,41 +253,5 @@ public class PomodoroTimerTest {
 
     }
 
-
-
-    public class ObserverContext {
-
-        @Test
-        public void ItShouldUpdateObserverOnStart() {
-            TimerExecutor executor = new TimerExecutor() {
-                @Override
-                public void start(PomodoroTimer timer) {
-                    timer.execute();
-                }
-
-                @Override
-                public void cancel() {
-
-                }
-            };
-
-            PomodoroTimer timer = new PomodoroTimer(executor) {
-                @Override
-                protected void sleep(int timeOut) {
-
-                }
-            };
-
-            timer.setTask(new TaskDummy());
-
-            ObserverSpy observerSpy = new ObserverSpy();
-            timer.registerObserver(observerSpy);
-
-
-            timer.start();
-
-            assertThat(observerSpy.updateWasCalled, is(true));
-        }
-    }
 
 }
