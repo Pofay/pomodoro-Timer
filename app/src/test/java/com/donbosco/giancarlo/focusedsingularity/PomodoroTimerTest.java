@@ -201,7 +201,7 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShould() {
+        public void ItShouldForwardChangesToTheObserver() {
             TimerExecutor executor = new TimerExecutor() {
                 @Override
                 public void start(PomodoroTimer timer) {
