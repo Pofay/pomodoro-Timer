@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bbbb22f-0814-45be-af69-3925ba1c5dc2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/ObserverSpy.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/ObserverSpy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -41,17 +42,19 @@
       <file leaf-file-name="PomodoroTimerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9242685">
-              <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.3545611">
+              <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4318#4319#0" expanded="true" />
                 <element signature="e#4373#4374#0" expanded="true" />
-                <element signature="e#4916#4917#0" expanded="true" />
-                <element signature="e#4947#4948#0" expanded="true" />
-                <element signature="e#5012#5013#0" expanded="true" />
-                <element signature="e#5051#5052#0" expanded="true" />
-                <element signature="class#5323:5610" expanded="false" />
+                <element signature="e#5034#5035#0" expanded="true" />
+                <element signature="e#5089#5090#0" expanded="true" />
+                <element signature="e#5648#5649#0" expanded="true" />
+                <element signature="e#5679#5680#0" expanded="true" />
+                <element signature="e#5744#5745#0" expanded="true" />
+                <element signature="e#5783#5784#0" expanded="true" />
+                <element signature="class#6055:6342" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -61,10 +64,10 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/ObserverSpy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
               <folding>
-                <element signature="e#220#221#0" expanded="true" />
-                <element signature="e#258#259#0" expanded="true" />
+                <element signature="e#261#262#0" expanded="true" />
+                <element signature="e#299#300#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1850,9 +1853,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Task.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/FakePomodoroTimer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerState.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/ObserverSpy.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimer.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerTest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/ObserverSpy.java" />
       </list>
     </option>
   </component>
@@ -2346,11 +2349,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2378,11 +2383,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2395,11 +2402,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2412,11 +2421,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2429,11 +2440,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2446,11 +2459,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2463,11 +2478,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2480,11 +2497,13 @@
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2765,17 +2784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/ObserverSpy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#258#259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/Observer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2815,19 +2823,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/donbosco/giancarlo/focusedsingularity/ObserverSpy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+          <folding>
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/com/donbosco/giancarlo/focusedsingularity/PomodoroTimerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9242685">
-          <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.3545611">
+          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4318#4319#0" expanded="true" />
             <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4916#4917#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#5012#5013#0" expanded="true" />
-            <element signature="e#5051#5052#0" expanded="true" />
-            <element signature="class#5323:5610" expanded="false" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5648#5649#0" expanded="true" />
+            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5783#5784#0" expanded="true" />
+            <element signature="class#6055:6342" expanded="false" />
           </folding>
         </state>
       </provider>
