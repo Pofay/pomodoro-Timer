@@ -50,12 +50,7 @@ public class PomodoroTimerTest {
 
         @Before
         public void setUp() {
-            timer = new PomodoroTimer() {
-                @Override
-                protected void sleep(int timeOut) {
-                }
-
-            };
+            timer = new SleeplessPomodoroTimer();
             stateSpy = new StateSpy();
             timer.setState(stateSpy);
         }
@@ -75,12 +70,8 @@ public class PomodoroTimerTest {
 
         @Before
         public void setUp() {
-            timer = new PomodoroTimer() {
-                @Override
-                protected void sleep(int timeOut) {
+            timer = new SleeplessPomodoroTimer();
 
-                }
-            };
             taskSpy = new TaskSpy();
 
             timer.setTask(taskSpy);
@@ -103,12 +94,7 @@ public class PomodoroTimerTest {
     public class AddingTimeToTaskContext {
         @Test
         public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
-            PomodoroTimer timer = new PomodoroTimer() {
-                @Override
-                protected void sleep(int timeOut) {
-
-                }
-            };
+            PomodoroTimer timer = new SleeplessPomodoroTimer();
             long timeEstimateInSeconds = 8000L;
 
             Task task = new PomodoroTask("Programming", timeEstimateInSeconds);
@@ -126,6 +112,13 @@ public class PomodoroTimerTest {
 
             assertThat(task.getTimeSpent(), is(expectedTimeSpent));
         }
+    }
+
+    private class SleeplessPomodoroTimer extends PomodoroTimer {
+        @Override
+        protected void sleep(int timeOut) {
+        }
+
     }
 
     public class InitialTickingContext {
@@ -201,11 +194,7 @@ public class PomodoroTimerTest {
         public void ItShouldExecuteStateOnTimerStart() throws Exception {
             StateSpy stateSpy = new StateSpy();
             TimerExecutorCancelSpy cancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new PomodoroTimer(cancelSpy) {
-                @Override
-                protected void sleep(int timeOut) {
-                }
-            };
+            PomodoroTimer timer = new FastPomodoroTimer(cancelSpy);
 
             timer.setState(stateSpy);
 
@@ -217,11 +206,7 @@ public class PomodoroTimerTest {
         @Test
         public void ItShouldCancelExecutorWhenFinishing2Executions() throws Exception {
             TimerExecutorCancelSpy executorCancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new PomodoroTimer(executorCancelSpy) {
-                @Override
-                protected void sleep(int timeOut) {
-                }
-            };
+            PomodoroTimer timer = new FastPomodoroTimer(executorCancelSpy);
 
             timer.setTask(new TaskDummy());
 
@@ -229,6 +214,16 @@ public class PomodoroTimerTest {
             timer.start();
 
             assertThat(executorCancelSpy.cancelWasCalled, is(true));
+        }
+
+        private class FastPomodoroTimer extends PomodoroTimer {
+            public FastPomodoroTimer(TimerExecutor executor) {
+                super(executor);
+            }
+
+            @Override
+            protected void sleep(int timeOut) {
+            }
         }
     }
 
