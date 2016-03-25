@@ -1,5 +1,7 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -11,16 +13,18 @@ public class PomodoroTimer {
     private TimerState state;
     private TimerSettings settings;
     private TimerExecutor executor;
-    private Observer observer;
+    private List<Observer> observers;
 
     public PomodoroTimer() {
         this(new TimerExecutorDummy());
+
     }
 
     public PomodoroTimer(TimerExecutor executor) {
         this.state = PomodoroTimerState.WORKING;
         this.executor = executor;
         this.settings = new TimerSettings(25L, 5L);
+        observers = new ArrayList<>();
     }
 
     public void setTask(Task task) {
@@ -89,11 +93,16 @@ public class PomodoroTimer {
     }
 
     public void registerObserver(Observer observer) {
-        this.observer = observer;
+        observers.add(observer);
     }
 
     public void notifyObserver(String timeChanged) {
-        if (observer != null)
+        if (observers.size() != 0)
+            updateObservers(timeChanged);
+    }
+
+    private void updateObservers(String timeChanged) {
+        for (Observer observer : observers)
             observer.update(timeChanged);
     }
 }

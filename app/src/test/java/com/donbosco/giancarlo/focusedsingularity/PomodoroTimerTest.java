@@ -176,7 +176,7 @@ public class PomodoroTimerTest {
 
             assertThat(observerSpy.updateWasCalled, is(true));
         }
-        
+
     }
 
     public class PushModelObserserverContext {
