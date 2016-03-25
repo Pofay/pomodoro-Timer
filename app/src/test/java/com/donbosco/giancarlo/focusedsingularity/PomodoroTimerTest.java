@@ -105,9 +105,11 @@ public class PomodoroTimerTest {
 
 
         private TimerExecutor executor;
+        private PomodoroTimer timer;
+        private Task task;
 
-        @Test
-        public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
+        @Before
+        public void setUp() {
             executor = new TimerExecutor() {
                 @Override
                 public void start(PomodoroTimer timer) {
@@ -119,13 +121,15 @@ public class PomodoroTimerTest {
 
                 }
             };
-            PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
+            timer = new SleeplessPomodoroTimer(executor);
+
             long timeEstimateInMinutes = 8L;
-
-            Task task = new PomodoroTask("Programming", timeEstimateInMinutes);
-
+            task = new PomodoroTask("Programming", timeEstimateInMinutes);
             timer.setTask(task);
+        }
 
+        @Test
+        public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
             long pomodoroDurationInMinutes = 4L;
             long breakDurationInMinutes = 0L;
 
