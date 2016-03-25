@@ -1,6 +1,7 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -66,13 +67,24 @@ public class PomodoroTimerTest {
 
         private PomodoroTimer timer;
         private TaskSpy taskSpy;
+        private TimerExecutor executor;
 
         @Before
         public void setUp() {
-            timer = new SleeplessPomodoroTimer();
+            executor = new TimerExecutor() {
+                @Override
+                public void start(PomodoroTimer timer) {
+                    timer.execute();
+                }
+
+                @Override
+                public void cancel() {
+
+                }
+            };
+            timer = new SleeplessPomodoroTimer(executor);
 
             taskSpy = new TaskSpy();
-
             timer.setTask(taskSpy);
 
             long pomodoroDurationInMinutes = 6L;
@@ -82,18 +94,32 @@ public class PomodoroTimerTest {
         }
 
         @Test
-        public void ItShouldBeAbleToCallTick6TimesAfterExecute() throws Exception {
-            timer.execute();
+        public void ItShouldCallAddTime() throws Exception {
+            timer.start();
 
-            int expectedTickCalls = 6;
-            assertThat(taskSpy.numberOfTickCalls, is(expectedTickCalls));
+            assertThat(taskSpy.addTimeWasCalled, is(true));
         }
     }
 
     public class AddingTimeToTaskContext {
+
+
+        private TimerExecutor executor;
+
         @Test
         public void ItShouldAddTimeToATaskBasedOnPomodoroDuration() throws Exception {
-            PomodoroTimer timer = new SleeplessPomodoroTimer();
+            executor = new TimerExecutor() {
+                @Override
+                public void start(PomodoroTimer timer) {
+                    timer.execute();
+                }
+
+                @Override
+                public void cancel() {
+
+                }
+            };
+            PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
             long timeEstimateInMinutes = 8L;
 
             Task task = new PomodoroTask("Programming", timeEstimateInMinutes);
@@ -105,7 +131,7 @@ public class PomodoroTimerTest {
 
             timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
 
-            timer.execute();
+            timer.start();
 
             long expectedTimeSpent = 4L;
 
@@ -114,6 +140,7 @@ public class PomodoroTimerTest {
     }
 
     public class TimerExecutorContext {
+
 
         @Test
         public void ItShouldExecuteStateOnTimerStart() throws Exception {
@@ -149,7 +176,7 @@ public class PomodoroTimerTest {
         private ObserverSpy observerSpy;
 
         @Before
-        public void setUp(){
+        public void setUp() {
             executor = new TimerExecutor() {
                 @Override
                 public void start(PomodoroTimer timer) {
@@ -196,8 +223,8 @@ public class PomodoroTimerTest {
 
             PomodoroTimer timer = new PomodoroTimer(executor) {
                 @Override
-                protected void tick(String timeFormat) {
-                    notifyObserver("T");
+                protected String parse(long millis) {
+                    return "T";
                 }
 
                 @Override
@@ -232,70 +259,70 @@ public class PomodoroTimerTest {
         }
     }
 
-    public class InitialTickingContext {
+//    public class InitialTickingContext {
+//
+//        String sequence = "";
+//        PomodoroTimer timer;
+//
+//        @Before
+//        public void WithATimerSetTo4Seconds() {
+//            timer = new PomodoroTimer() {
+//                @Override
+//                protected void tick(String timeFormat) {
+//                    sequence += "T";
+//                }
+//
+//                @Override
+//                protected void sleep(int timeOut) {
+//                    sequence += "s";
+//                }
+//
+//            };
+//
+//            timer.setTask(new TaskDummy());
+//
+//            long pomodoroDurationInMinutes = 4L;
+//            long breakDurationInMinutes = 0L;
+//            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
+//        }
+//
+//        @Test
+//        public void ItShouldPerformAWorkingCountDownOnExecute() throws Exception {
+//            timer.execute();
+//
+//            assertThat(sequence, is("TsTsTsTs"));
+//        }
+//    }
 
-        String sequence = "";
-        PomodoroTimer timer;
+//    public class BreakTickingContext {
+//
+//        private PomodoroTimer timer;
+//
+//        String sequence = "";
+//
+//        @Before
+//        public void WithATimerThatHasAlreadyPerformedItsWorkingCountDown() {
+//            timer = new PomodoroTimer() {
+//                @Override
+//                protected void sleep(int timeOut) {
+//                    sequence += "s";
+//                }
+//
+//            };
+//
+//            long breakDurationInMinutes = 4L;
+//            long pomodoroDurationInMinutes = 0L;
+//            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
+//
+//            timer.execute();
+//        }
+//
+//        @Test
+//        public void ItShouldPerformBreakCountDownOn2ndSecondExecute() {
+//            timer.execute();
+//
+//            assertThat(sequence, is("ssss"));
+//        }
 
-        @Before
-        public void WithATimerSetTo4Seconds() {
-            timer = new PomodoroTimer() {
-                @Override
-                protected void tick(String timeFormat) {
-                    sequence += "T";
-                }
 
-                @Override
-                protected void sleep(int timeOut) {
-                    sequence += "s";
-                }
-
-            };
-
-            timer.setTask(new TaskDummy());
-
-            long pomodoroDurationInMinutes = 4L;
-            long breakDurationInMinutes = 0L;
-            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
-        }
-
-        @Test
-        public void ItShouldPerformAWorkingCountDownOnExecute() throws Exception {
-            timer.execute();
-
-            assertThat(sequence, is("TsTsTsTs"));
-        }
-    }
-
-    public class BreakTickingContext {
-
-        private PomodoroTimer timer;
-
-        String sequence = "";
-
-        @Before
-        public void WithATimerThatHasAlreadyPerformedItsWorkingCountDown() {
-            timer = new PomodoroTimer() {
-                @Override
-                protected void sleep(int timeOut) {
-                    sequence += "s";
-                }
-
-            };
-
-            long breakDurationInMinutes = 4L;
-            long pomodoroDurationInMinutes = 0L;
-            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
-
-            timer.execute();
-        }
-
-        @Test
-        public void ItShouldPerformBreakCountDownOn2ndSecondExecute() {
-            timer.execute();
-
-            assertThat(sequence, is("ssss"));
-        }
-
-    }
 }

@@ -7,7 +7,7 @@ public interface Task {
 
     Long getTimeEstimateInSeconds();
 
-    void addOneSecond();
+    void addTime(long time);
 
     long getTimeSpent();
 }

@@ -4,7 +4,7 @@ package com.donbosco.giancarlo.focusedsingularity;
  * Created by GianCarlo on 3/17/2016.
  */
 public class TaskSpy implements Task {
-    public int numberOfTickCalls;
+    public boolean addTimeWasCalled;
 
     @Override
     public Long getTimeEstimateInSeconds() {
@@ -12,8 +12,8 @@ public class TaskSpy implements Task {
     }
 
     @Override
-    public void addOneSecond() {
-        numberOfTickCalls++;
+    public void addTime(long time) {
+        addTimeWasCalled = true;
     }
 
     @Override

@@ -9,11 +9,11 @@ public class TaskDummy implements Task {
         return null;
     }
 
-
     @Override
-    public void addOneSecond() {
+    public void addTime(long time) {
 
     }
+
 
     @Override
     public long getTimeSpent() {

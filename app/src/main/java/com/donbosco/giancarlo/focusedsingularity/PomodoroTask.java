@@ -23,9 +23,10 @@ public class PomodoroTask implements Task {
     }
 
     @Override
-    public void addOneSecond() {
-        timeSpent += 1L;
+    public void addTime(long time) {
+        timeSpent += time;
     }
+
 
     @Override
     public long getTimeSpent() {
