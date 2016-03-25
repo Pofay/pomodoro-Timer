@@ -53,13 +53,13 @@ public class PomodoroTimer implements Subject {
     }
 
 
-    public void performCountDown() {
+    public void pomodoroCycle() {
         long millis = 0;
         long timeRan = countDown(millis);
         currentTask.addTime(timeRan);
     }
 
-    public void performBreakCountDown() {
+    public void breakCycle() {
         long millis = 0;
         countDown(millis);
     }

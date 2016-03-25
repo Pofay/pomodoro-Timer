@@ -8,7 +8,7 @@ public enum PomodoroTimerState implements TimerState {
     BREAK {
         @Override
         public void execute(PomodoroTimer timer) {
-            timer.performBreakCountDown();
+            timer.breakCycle();
             timer.setState(WORKING);
             timer.cancel();
         }
@@ -17,7 +17,7 @@ public enum PomodoroTimerState implements TimerState {
     WORKING {
         @Override
         public void execute(PomodoroTimer timer) {
-            timer.performCountDown();
+            timer.oomodoroCycle();
             timer.setState(BREAK);
         }
     }
