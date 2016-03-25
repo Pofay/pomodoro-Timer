@@ -196,7 +196,7 @@ public class PomodoroTimerTest {
 
             PomodoroTimer timer = new PomodoroTimer(executor) {
                 @Override
-                protected void tick() {
+                protected void tick(String timeFormat) {
                     notifyObserver("T");
                 }
 
@@ -241,7 +241,7 @@ public class PomodoroTimerTest {
         public void WithATimerSetTo4Seconds() {
             timer = new PomodoroTimer() {
                 @Override
-                protected void tick() {
+                protected void tick(String timeFormat) {
                     sequence += "T";
                 }
 
