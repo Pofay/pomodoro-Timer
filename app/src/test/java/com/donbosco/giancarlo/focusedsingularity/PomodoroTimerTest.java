@@ -176,20 +176,7 @@ public class PomodoroTimerTest {
 
             assertThat(observerSpy.updateWasCalled, is(true));
         }
-
-        @Test
-        public void ItShouldCallUpdateTheSameTimesAsThePomodoroDuration() {
-            long pomodoroDurationInMinutes = 8L;
-            long breakDurationInMinutes = 3L;
-
-            timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
-
-            timer.start();
-
-            assertThat(observerSpy.numberOfUpdateCalls, is(8));
-        }
-
-
+        
     }
 
     public class PushModelObserserverContext {
