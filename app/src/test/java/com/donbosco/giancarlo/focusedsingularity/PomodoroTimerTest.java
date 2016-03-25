@@ -146,31 +146,38 @@ public class PomodoroTimerTest {
     public class TimerExecutorContext {
 
 
-        @Test
-        public void ItShouldExecuteStateOnTimerStart() throws Exception {
-            StateSpy stateSpy = new StateSpy();
-            TimerExecutorCancelSpy cancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new SleeplessPomodoroTimer(cancelSpy);
+        private StateSpy stateSpy;
+        private TimerExecutorCancelSpy cancelSpy;
+        private PomodoroTimer timer;
+
+        @Before
+        public void setUp() {
+            stateSpy = new StateSpy();
+            cancelSpy = new TimerExecutorCancelSpy();
+            timer = new SleeplessPomodoroTimer(cancelSpy);
 
             timer.setState(stateSpy);
+        }
 
+        @Test
+        public void ItShouldExecuteStateOnTimerStart() throws Exception {
             timer.start();
 
             assertThat(stateSpy.executeWasCalled, is(true));
         }
+    }
 
-        @Test
-        public void ItShouldCancelExecutorWhenFinishing2Executions() throws Exception {
-            TimerExecutorCancelSpy executorCancelSpy = new TimerExecutorCancelSpy();
-            PomodoroTimer timer = new SleeplessPomodoroTimer(executorCancelSpy);
+    @Test
+    public void ItShouldCancelExecutorWhenFinishing2Executions() throws Exception {
+        TimerExecutorCancelSpy executorCancelSpy = new TimerExecutorCancelSpy();
+        PomodoroTimer timer = new SleeplessPomodoroTimer(executorCancelSpy);
 
-            timer.setTask(new TaskDummy());
+        timer.setTask(new TaskDummy());
 
-            timer.start();
-            timer.start();
+        timer.start();
+        timer.start();
 
-            assertThat(executorCancelSpy.cancelWasCalled, is(true));
-        }
+        assertThat(executorCancelSpy.cancelWasCalled, is(true));
     }
 
     public class ObserverContext {
