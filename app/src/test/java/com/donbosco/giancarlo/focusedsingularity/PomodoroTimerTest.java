@@ -200,6 +200,10 @@ public class PomodoroTimerTest {
             assertThat(observerSpy.numberOfUpdateCalls, is(8));
         }
 
+
+    }
+
+    public class PushModelObserserverContext {
         @Test
         public void ItShouldForwardChangesToTheObserver() {
             TimerExecutor executor = new TimerExecutor() {

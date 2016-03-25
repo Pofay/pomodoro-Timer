@@ -52,8 +52,6 @@ public class PomodoroTimer {
     public void performCountDown() {
         for (int i = 0; i < settings.pomodoroDuration; i++) {
             tick();
-            // This really implies that Timer must be abstract
-            notifyObserver("");
             sleep(1);
         }
     }
@@ -66,6 +64,7 @@ public class PomodoroTimer {
 
     protected void tick() {
         currentTask.addOneSecond();
+        notifyObserver("");
     }
 
 
