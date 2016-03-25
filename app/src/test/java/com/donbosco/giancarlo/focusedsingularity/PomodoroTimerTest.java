@@ -144,9 +144,13 @@ public class PomodoroTimerTest {
 
     public class ObserverContext {
 
-        @Test
-        public void ItShouldUpdateObserverOnStart() {
-            TimerExecutor executor = new TimerExecutor() {
+        private TimerExecutor executor;
+        private PomodoroTimer timer;
+        private ObserverSpy observerSpy;
+
+        @Before
+        public void setUp(){
+            executor = new TimerExecutor() {
                 @Override
                 public void start(PomodoroTimer timer) {
                     timer.execute();
@@ -158,13 +162,16 @@ public class PomodoroTimerTest {
                 }
             };
 
-            PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
-
+            timer = new SleeplessPomodoroTimer(executor);
             timer.setTask(new TaskDummy());
 
-            ObserverSpy observerSpy = new ObserverSpy();
+            observerSpy = new ObserverSpy();
             timer.registerObserver(observerSpy);
 
+        }
+
+        @Test
+        public void ItShouldUpdateObserverOnStart() {
             timer.start();
 
             assertThat(observerSpy.updateWasCalled, is(true));
@@ -172,28 +179,10 @@ public class PomodoroTimerTest {
 
         @Test
         public void ItShouldCallUpdateTheSameTimesAsThePomodoroDuration() {
-            TimerExecutor executor = new TimerExecutor() {
-                @Override
-                public void start(PomodoroTimer timer) {
-                    timer.execute();
-                }
-
-                @Override
-                public void cancel() {
-
-                }
-            };
-
-            PomodoroTimer timer = new SleeplessPomodoroTimer(executor);
             long pomodoroDurationInMinutes = 8L;
             long breakDurationInMinutes = 3L;
 
             timer.setTimerSettings(pomodoroDurationInMinutes, breakDurationInMinutes);
-            timer.setTask(new TaskDummy());
-
-            ObserverSpy observerSpy = new ObserverSpy();
-
-            timer.registerObserver(observerSpy);
 
             timer.start();
 
@@ -205,7 +194,7 @@ public class PomodoroTimerTest {
 
     public class PushModelObserserverContext {
         @Test
-        public void ItShouldForwardChangesToTheObserver() {
+        public void ItShouldForwardChangesToTheObserverOnStart() {
             TimerExecutor executor = new TimerExecutor() {
                 @Override
                 public void start(PomodoroTimer timer) {
