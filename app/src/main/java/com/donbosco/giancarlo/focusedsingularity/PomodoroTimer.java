@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by GianCarlo on 3/6/2016.
  */
-public class PomodoroTimer {
+public class PomodoroTimer implements Subject {
 
     private Task currentTask;
     private TimerState state;
@@ -92,10 +92,12 @@ public class PomodoroTimer {
         return settings.pomodoroDuration;
     }
 
+    @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
     }
 
+    @Override
     public void notifyObserver(String timeChanged) {
         if (observers.size() != 0)
             updateObservers(timeChanged);
