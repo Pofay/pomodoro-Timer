@@ -55,33 +55,28 @@ public class PomodoroTimer implements Subject {
 
     public void performCountDown() {
         long millis = 0;
+        long timeRan = countDown(millis);
+        currentTask.addTime(timeRan);
+    }
+
+    public void performBreakCountDown() {
+        long millis = 0;
+        countDown(millis);
+    }
+
+    private long countDown(long millis) {
         long timeRan = 0;
         for (; timeRan < settings.pomodoroDuration; timeRan++) {
             String timeFormat = parse(millis);
             notifyObserver(timeFormat);
             sleep(1);
         }
-        currentTask.addTime(timeRan);
-    }
-
-    public void performBreakCountDown() {
-        long millis = 0;
-        for (int i = 0; i < settings.breakDuration; i++) {
-            String timeFormat = parse(millis);
-            notifyObserver(timeFormat);
-            sleep(1);
-        }
+        return timeRan;
     }
 
     protected String parse(long millis) {
         return null;
     }
-
-//    protected void tick(String timeFormat) {
-//        currentTask.addOneSecond();
-//        notifyObserver("");
-//    }
-
 
     protected void sleep(int timeOut) {
         try {
