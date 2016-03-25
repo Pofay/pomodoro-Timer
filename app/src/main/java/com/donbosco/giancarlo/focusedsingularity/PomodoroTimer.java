@@ -67,7 +67,10 @@ public class PomodoroTimer implements Subject {
     }
 
     public void performBreakCountDown() {
+        long millis = 0;
         for (int i = 0; i < settings.breakDuration; i++) {
+            String timeFormat = parse(millis);
+            notifyObserver(timeFormat);
             sleep(1);
         }
     }
