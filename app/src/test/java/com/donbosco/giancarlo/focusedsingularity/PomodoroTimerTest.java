@@ -218,6 +218,7 @@ public class PomodoroTimerTest {
                     notifyObserver("s");
                 }
             };
+
             timer.setTimerSettings(4L, 4L);
             timer.setTask(new TaskDummy());
             ObserverSpy observerSpy = new ObserverSpy();
