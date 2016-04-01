@@ -1,4 +1,4 @@
-package com.donbosco.giancarlo.focusedsingularity;
+package com.donbosco.giancarlo.focusedsingularity.Core.Entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +14,30 @@ public class PomodoroTimer implements Subject {
     private TimerSettings settings;
     private TimerExecutor executor;
     private List<Observer> observers;
+    protected OutputPort outputPort;
+    private boolean started;
+    private int count;
 
     public PomodoroTimer() {
-        this(new TimerExecutorDummy());
+        this(new TimerExecutor() {
+
+            @Override
+            public void start(PomodoroTimer timer) {
+                timer.execute();
+            }
+
+            @Override
+            public void cancel() {
+
+            }
+        });
 
     }
 
     public PomodoroTimer(TimerExecutor executor) {
         this.state = PomodoroTimerState.WORKING;
         this.executor = executor;
-        this.settings = new TimerSettings(25L, 5L);
+        this.settings = new TimerSettings(5L, 5L);
         observers = new ArrayList<>();
     }
 
@@ -41,6 +55,7 @@ public class PomodoroTimer implements Subject {
     }
 
     public void start() {
+        started = true;
         executor.start(this);
     }
 
@@ -49,7 +64,9 @@ public class PomodoroTimer implements Subject {
     }
 
     public void cancel() {
+        started = false;
         executor.cancel();
+        notifyObserver("00:00");
     }
 
 
@@ -57,6 +74,7 @@ public class PomodoroTimer implements Subject {
         long millis = 0;
         long timeRan = countDown(millis);
         currentTask.addTime(timeRan);
+        outputPort.setPomodoroCount(String.valueOf(count++));
     }
 
     public void breakCycle() {
@@ -66,8 +84,8 @@ public class PomodoroTimer implements Subject {
 
     private long countDown(long millis) {
         long timeRan = 0;
-        for (; timeRan < settings.pomodoroDuration; timeRan++) {
-            String timeFormat = parse(millis);
+        for (; timeRan < settings.pomodoroDuration && started; timeRan++) {
+            String timeFormat = parse(timeRan);
             notifyObserver(timeFormat);
             sleep(1);
         }
@@ -75,7 +93,7 @@ public class PomodoroTimer implements Subject {
     }
 
     protected String parse(long millis) {
-        return null;
+        return String.format("%d", millis);
     }
 
     protected void sleep(int timeOut) {
@@ -101,6 +119,10 @@ public class PomodoroTimer implements Subject {
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
+    }
+
+    public void registerOutputPort(OutputPort outputPort) {
+        this.outputPort = outputPort;
     }
 
     @Override

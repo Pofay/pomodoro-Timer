@@ -1,6 +1,4 @@
-package com.donbosco.giancarlo.focusedsingularity;
-
-import java.util.concurrent.TimeUnit;
+package com.donbosco.giancarlo.focusedsingularity.Core.Entities;
 
 /**
  * Created by GianCarlo on 3/8/2016.

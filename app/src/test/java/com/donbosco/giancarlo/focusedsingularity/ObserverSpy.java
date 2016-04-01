@@ -1,5 +1,7 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
+import com.donbosco.giancarlo.focusedsingularity.Core.Entities.Observer;
+
 /**
  * Created by GianCarlo on 3/24/2016.
  */

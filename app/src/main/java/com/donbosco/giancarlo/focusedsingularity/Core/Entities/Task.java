@@ -1,4 +1,4 @@
-package com.donbosco.giancarlo.focusedsingularity;
+package com.donbosco.giancarlo.focusedsingularity.Core.Entities;
 
 /**
  * Created by GianCarlo on 3/9/2016.

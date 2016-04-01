@@ -12,5 +12,49 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/timer_text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="93dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/start_button"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/timer_text"
+        android:layout_toStartOf="@+id/timer_text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:id="@+id/stop_button"
+        android:layout_alignTop="@+id/start_button"
+        android:layout_toRightOf="@+id/timer_text"
+        android:layout_toEndOf="@+id/timer_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Pomodo Count"
+        android:id="@+id/count_text"
+        android:layout_marginTop="86dp"
+        android:layout_below="@+id/start_button"
+        android:layout_alignLeft="@+id/start_button"
+        android:layout_alignStart="@+id/start_button" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pomodoro_field"
+        android:layout_alignBottom="@+id/count_text"
+        android:layout_toRightOf="@+id/count_text"
+        android:layout_alignRight="@+id/stop_button"
+        android:layout_alignEnd="@+id/stop_button" />
+
 </RelativeLayout>

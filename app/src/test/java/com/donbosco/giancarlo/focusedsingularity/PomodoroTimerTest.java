@@ -1,7 +1,12 @@
 package com.donbosco.giancarlo.focusedsingularity;
 
+import com.donbosco.giancarlo.focusedsingularity.Core.Entities.OutputPort;
+import com.donbosco.giancarlo.focusedsingularity.Core.Entities.PomodoroTask;
+import com.donbosco.giancarlo.focusedsingularity.Core.Entities.PomodoroTimer;
+import com.donbosco.giancarlo.focusedsingularity.Core.Entities.Task;
+import com.donbosco.giancarlo.focusedsingularity.Core.Entities.TimerExecutor;
+
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -232,17 +237,7 @@ public class PomodoroTimerTest {
                 }
             };
 
-            PomodoroTimer timer = new PomodoroTimer(executor) {
-                @Override
-                protected String parse(long millis) {
-                    return "T";
-                }
-
-                @Override
-                protected void sleep(int timeOut) {
-                    notifyObserver("s");
-                }
-            };
+            PomodoroTimer timer = new SleeplessObserverTimer(executor);
 
             timer.setTimerSettings(4L, 4L);
             timer.setTask(new TaskDummy());
@@ -252,6 +247,22 @@ public class PomodoroTimerTest {
             timer.start();
 
             assertThat(observerSpy.sequence, is("TsTsTsTs"));
+        }
+
+        private class SleeplessObserverTimer extends SleeplessPomodoroTimer{
+            public SleeplessObserverTimer(TimerExecutor executor) {
+                super(executor);
+            }
+
+            @Override
+            protected String parse(long millis) {
+                return "T";
+            }
+
+            @Override
+            protected void sleep(int timeOut) {
+                notifyObserver("s");
+            }
         }
     }
 
@@ -263,6 +274,12 @@ public class PomodoroTimerTest {
 
         public SleeplessPomodoroTimer(TimerExecutor executor) {
             super(executor);
+            this.outputPort = new OutputPort() {
+                @Override
+                public void setPomodoroCount(String count) {
+
+                }
+            };
         }
 
         @Override
